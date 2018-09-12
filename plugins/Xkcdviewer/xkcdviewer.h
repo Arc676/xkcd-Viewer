@@ -8,9 +8,6 @@ class Xkcdviewer: public QObject {
 
 public:
     Xkcdviewer();
-    ~Xkcdviewer() = default;
-
-    Q_INVOKABLE void speak();
 };
 
 #endif

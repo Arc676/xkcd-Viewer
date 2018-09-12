@@ -12,6 +12,8 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
+    property real margin: units.gu(2)
+
     Page {
         anchors.fill: parent
 
@@ -20,11 +22,44 @@ MainView {
             title: i18n.tr('xkcd Viewer')
         }
 
-        Label {
-            anchors.centerIn: parent
-            text: i18n.tr('Hello World!')
-        }
+    	Row {
+		id: buttons
+		spacing: margin
+
+		anchors {
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+			bottom: parent.bottom
+			bottomMargin: margin
+		}
+
+		Button {
+			id: prevComicBtn
+			text: "<"
+		}
+
+		Button {
+			id: randomComicBtn
+			text: i18n.tr("Random")
+		}
+
+		Button {
+			id: altTextBtn
+			text: i18n.tr("Title Text")
+		}
+
+		Button {
+			id: explainBtn
+			text: i18n.tr("Explain")
+		}
+
+		Button {
+			id: nextComicBtn
+			text: ">"
+		}
+	}
     }
 
-    Component.onCompleted: Xkcdviewer.speak()
 }

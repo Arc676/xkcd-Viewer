@@ -5,7 +5,3 @@
 Xkcdviewer::Xkcdviewer() {
 
 }
-
-void Xkcdviewer::speak() {
-    qDebug() << "hello world!";
-}
