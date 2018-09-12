@@ -17,6 +17,7 @@
 #define XKCDVIEWER_H
 
 #include <QObject>
+#include <QtNetwork>
 
 #include <cstdlib>
 #include <ctime>
@@ -27,38 +28,50 @@ class Xkcdviewer: public QObject {
 	int currentComic = -1;
 	int latestComic = -1;
 
+	QJsonObject comicData;
+
 	/**
 	 * Obtains the JSON data for the currently selected comic
 	 */
 	void updateJSON();
 
 public:
+	/**
+	 * Initialize the viewer
+	 */
 	Xkcdviewer();
+
+	/**
+	 * Obtain the current comic's data in JSON format
+	 * @return JSON data for current comic
+	 */
+	Q_INVOKABLE QJsonObject getComicData();
+
+	/**
+	 * Downloads the JSON data for the currently selected comic
+	 * from the server
+	 */
+	Q_INVOKABLE void downloadJSON();
 
 	/**
 	 * Show the previous comic
 	 */
-	void prevComic();
+	Q_INVOKABLE void prevComic();
 
 	/**
 	 * Show the next comic
 	 */
-	void nextComic();
+	Q_INVOKABLE void nextComic();
 
 	/**
 	 * Show a random comic
 	 */
-	void randomComic();
-
-	/**
-	 * Show the title text for the current comic
-	 */
-	void showAltText();
+	Q_INVOKABLE void randomComic();
 
 	/**
 	 * Go to the explainxkcd page for the current comic
 	 */
-	void explainComic();
+	Q_INVOKABLE void explainComic();
 };
 
 #endif

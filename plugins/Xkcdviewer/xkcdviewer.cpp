@@ -22,24 +22,32 @@ Xkcdviewer::Xkcdviewer() {
 	// get current JSON
 }
 
-void updateJSON() {
+QJsonObject Xkcdviewer::getComicData() {
+	return comicData;
 }
 
-void prevComic() {
+void Xkcdviewer::updateJSON() {
+	downloadJSON();
+}
+
+void Xkcdviewer::downloadJSON() {
+}
+
+void Xkcdviewer::prevComic() {
 	if (currentComic > 1) {
 		currentComic--;
 		updateJSON();
 	}
 }
 
-void nextComic() {
+void Xkcdviewer::nextComic() {
 	if (currentComic < latestComic) {
 		currentComic++;
 		updateJSON();
 	}
 }
 
-void randomComic() {
+void Xkcdviewer::randomComic() {
 	// take note of the comic that was just seen
 	int justSeen = currentComic;
 	// use modulo to generate a random number in the range (0, latest - 1]
@@ -55,9 +63,6 @@ void randomComic() {
 	updateJSON();
 }
 
-void showAltText() {
-}
-
-void explainComic() {
+void Xkcdviewer::explainComic() {
 }
 

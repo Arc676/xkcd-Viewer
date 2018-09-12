@@ -19,71 +19,128 @@ import Ubuntu.Components 1.3
 import Xkcdviewer 1.0
 
 MainView {
-    id: root
-    objectName: 'mainView'
-    applicationName: 'xkcd_viewer.arc676'
-    automaticOrientation: true
+	id: root
+	objectName: 'mainView'
+	applicationName: 'xkcd_viewer.arc676'
+	automaticOrientation: true
 
-    width: units.gu(45)
-    height: units.gu(75)
+	width: units.gu(45)
+	height: units.gu(75)
 
-    property real margin: units.gu(2)
+	property real margin: units.gu(2)
 
-    Page {
-        anchors.fill: parent
+	function showLoading() {
+		comic.source = "assets/loading.png"
+		titleText.text = ""
+	}
 
-        header: PageHeader {
-            id: header
-            title: i18n.tr('xkcd Viewer')
-        }
+	Page {
+		anchors.fill: parent
 
-    	Row {
-		id: buttons
-		spacing: margin
-
-		anchors {
-			left: parent.left
-			leftMargin: margin
-			right: parent.right
-			rightMargin: margin
-			bottom: parent.bottom
-			bottomMargin: margin
+		header: PageHeader {
+			id: header
+			title: i18n.tr("xkcd Viewer")
 		}
 
-		Button {
-			id: prevComicBtn
-			text: "<"
-			onClicked: {
-				Xkcdviewer.prevComic()
+		Row {
+			id: topBar
+			spacing: margin
+
+			anchors {
+				top: header.bottom
+				topMargin: margin
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
+			}
+
+			Button {
+				id: latestBtn
+				text: i18n.tr("View latest")
+			}
+
+			Button {
+				id: refreshBtn
+				text: i18n.tr("Reload from source")
+				onClicked: {
+					Xkcdviewer.downloadJSON()
+				}
 			}
 		}
 
-		Button {
-			id: randomComicBtn
-			text: i18n.tr("Random")
-			onClicked: {
-				Xkcdviewer.randomComic()
+		Image {
+			id: comic
+			source: "../assets/loading.png"
+			fillMode: Image.PreserveAspectFit
+			height: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+
+			anchors {
+				top: topBar.bottom
+				topMargin: margin
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
 			}
 		}
 
-		Button {
-			id: altTextBtn
-			text: i18n.tr("Title Text")
+		Label {
+			id: titleText
+			text: ""
+
+			anchors {
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
+				bottom: bottomBar.top
+				bottomMargin: margin
+			}
 		}
 
-		Button {
-			id: explainBtn
-			text: i18n.tr("Explain")
-		}
+		Row {
+			id: bottomBar
+			spacing: margin
 
-		Button {
-			id: nextComicBtn
-			text: ">"
-			onClicked: {
-				Xkcdviewer.nextComic()
+			anchors {
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
+				bottom: parent.bottom
+				bottomMargin: margin
+			}
+
+			Button {
+				id: prevComicBtn
+				text: "<"
+				onClicked: {
+					Xkcdviewer.prevComic()
+				}
+			}
+
+			Button {
+				id: randomComicBtn
+				text: i18n.tr("Random")
+				onClicked: {
+					Xkcdviewer.randomComic()
+				}
+			}
+
+			Button {
+				id: explainBtn
+				text: i18n.tr("Explain")
+			}
+
+			Button {
+				id: nextComicBtn
+				text: ">"
+				onClicked: {
+					Xkcdviewer.nextComic()
+				}
 			}
 		}
 	}
-    }
 
 }
