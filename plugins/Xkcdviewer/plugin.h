@@ -1,0 +1,14 @@
+#ifndef XKCDVIEWERPLUGIN_H
+#define XKCDVIEWERPLUGIN_H
+
+#include <QQmlExtensionPlugin>
+
+class XkcdviewerPlugin : public QQmlExtensionPlugin {
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+
+public:
+    void registerTypes(const char *uri);
+};
+
+#endif
