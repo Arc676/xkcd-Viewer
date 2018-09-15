@@ -18,8 +18,13 @@
 #include "xkcdviewer.h"
 
 Xkcdviewer::Xkcdviewer() {
+	// init random
 	srand((unsigned)time(0));
-	// get current JSON
+	// set up networking stuff
+	netmgr = new QNetworkManager(this);
+	dataBuffer = new QByteArray();
+	// get latest comic
+	downloadJSON();
 }
 
 QJsonObject Xkcdviewer::getComicData() {
@@ -31,6 +36,26 @@ void Xkcdviewer::updateJSON() {
 }
 
 void Xkcdviewer::downloadJSON() {
+	// get URL of needed data
+	QUrl url;
+	if (currentComic > 0) {
+		url = QUrl(QString("http://xkcd.com/%1/info.0.json").arg(currentComic));
+	} else {
+		url = QUrl("http://xkcd.com/info.0.json");
+	}
+	netreply = netmgr->get(QNetworkRequest(url));
+
+	// connect signals
+	connect(netreply, &QIODevice::readyRead, this, &Xkcdviewer::dataReady);
+	connect(netreply, &QNetworkReply::finished, this, &Xkcdviewer::dataFinished);
+}
+
+void Xkcdviewer::dataReady() {
+	dataBuffer->append(netreply->readAll());
+}
+
+void Xkcdviewer::dataFinished() {
+	comicData = QJsonObject::fromJson(*dataBuffer);
 }
 
 void Xkcdviewer::prevComic() {

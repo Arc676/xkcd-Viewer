@@ -30,10 +30,25 @@ class Xkcdviewer: public QObject {
 
 	QJsonObject comicData;
 
+	// Networking
+	QNetworkAccessManager *netmgr;
+	QNetworkReply *netreply;
+	QByteArray *dataBuf;
+
 	/**
 	 * Obtains the JSON data for the currently selected comic
 	 */
 	void updateJSON();
+
+	/**
+	 * Indicate that network data is ready to be read
+	 */
+	void dataReady();
+
+	/**
+	 * Indicate that network data is done being read
+	 */
+	void dataFinished();
 
 public:
 	/**
