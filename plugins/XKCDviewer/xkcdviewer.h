@@ -28,12 +28,12 @@ class XKCDviewer: public QObject {
 	int currentComic = -1;
 	int latestComic = -1;
 
-	QJsonObject comicData;
+	QJsonDocument comicData;
 
 	// Networking
 	QNetworkAccessManager *netmgr;
 	QNetworkReply *netreply;
-	QByteArray *dataBuf;
+	QByteArray *dataBuffer;
 
 	/**
 	 * Obtains the JSON data for the currently selected comic
@@ -56,17 +56,24 @@ public:
 	 */
 	XKCDviewer();
 
+	Q_PROPERTY(QJsonObject comicData READ getComicData)
+
 	/**
-	 * Obtain the current comic's data in JSON format
-	 * @return JSON data for current comic
+	 * Obtains comic data for the current comic
+	 * @return QJsonObject containing data about the currently selected comic
 	 */
-	Q_INVOKABLE QJsonObject getComicData();
+	QJsonObject getComicData();
 
 	/**
 	 * Downloads the JSON data for the currently selected comic
 	 * from the server
 	 */
 	Q_INVOKABLE void downloadJSON();
+
+	/**
+	 * Show the latest comic
+	 */
+	Q_INVOKABLE void jumpToLatest();
 
 	/**
 	 * Show the previous comic
@@ -87,6 +94,9 @@ public:
 	 * Go to the explainxkcd page for the current comic
 	 */
 	Q_INVOKABLE void explainComic();
+
+signals:
+	void doRefreshView();
 };
 
 #endif

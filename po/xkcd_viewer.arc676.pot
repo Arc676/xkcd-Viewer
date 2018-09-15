@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkcd_viewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-12 16:15+0000\n"
+"POT-Creation-Date: 2018-09-15 16:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:42 xkcd_viewer.desktop.in.h:1
+#: ../qml/Main.qml:51 xkcd_viewer.desktop.in.h:1
 msgid "xkcd Viewer"
 msgstr ""
 
-#: ../qml/Main.qml:60
+#: ../qml/Main.qml:69
 msgid "View latest"
 msgstr ""
 
-#: ../qml/Main.qml:65
+#: ../qml/Main.qml:77
 msgid "Reload from source"
 msgstr ""
 
-#: ../qml/Main.qml:125
+#: ../qml/Main.qml:137
 msgid "Random"
 msgstr ""
 
-#: ../qml/Main.qml:133
+#: ../qml/Main.qml:145
 msgid "Explain"
 msgstr ""

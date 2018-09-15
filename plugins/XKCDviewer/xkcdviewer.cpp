@@ -21,14 +21,10 @@ XKCDviewer::XKCDviewer() {
 	// init random
 	srand((unsigned)time(0));
 	// set up networking stuff
-	netmgr = new QNetworkManager(this);
+	netmgr = new QNetworkAccessManager(this);
 	dataBuffer = new QByteArray();
 	// get latest comic
 	downloadJSON();
-}
-
-QJsonObject XKCDviewer::getComicData() {
-	return comicData;
 }
 
 void XKCDviewer::updateJSON() {
@@ -38,10 +34,10 @@ void XKCDviewer::updateJSON() {
 void XKCDviewer::downloadJSON() {
 	// get URL of needed data
 	QUrl url;
-	if (currentComic > 0) {
-		url = QUrl(QString("http://xkcd.com/%1/info.0.json").arg(currentComic));
+	if (currentComic < 0) {
+		url = QUrl("https://xkcd.com/info.0.json");
 	} else {
-		url = QUrl("http://xkcd.com/info.0.json");
+		url = QUrl(QString("https://xkcd.com/%1/info.0.json").arg(currentComic));
 	}
 	netreply = netmgr->get(QNetworkRequest(url));
 
@@ -55,7 +51,24 @@ void XKCDviewer::dataReady() {
 }
 
 void XKCDviewer::dataFinished() {
-	comicData = QJsonObject::fromJson(*dataBuffer);
+	comicData = QJsonDocument::fromJson(*dataBuffer);
+	emit doRefreshView();
+	if (currentComic < 0) {
+		latestComic = comicData.object().value("num").toInt();
+		currentComic = latestComic;
+	}
+	netreply->deleteLater();
+	netreply = nullptr;
+	dataBuffer->clear();
+}
+
+QJsonObject XKCDviewer::getComicData() {
+	return comicData.object();
+}
+
+void XKCDviewer::jumpToLatest() {
+	currentComic = -1;
+	updateJSON();
 }
 
 void XKCDviewer::prevComic() {

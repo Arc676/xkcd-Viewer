@@ -29,6 +29,15 @@ MainView {
 
 	property real margin: units.gu(2)
 
+	Connections {
+		target: XKCDviewer
+		onDoRefreshView: {
+			var json = XKCDviewer.comicData
+			console.log(JSON.stringify(json))
+			titleText.text = json["alt"]
+		}
+	}
+
 	function showLoading() {
 		comic.source = "assets/loading.png"
 		titleText.text = ""
@@ -58,6 +67,9 @@ MainView {
 			Button {
 				id: latestBtn
 				text: i18n.tr("View latest")
+				onClicked: {
+					XKCDviewer.jumpToLatest()
+				}
 			}
 
 			Button {
