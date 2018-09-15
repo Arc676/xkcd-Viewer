@@ -18,7 +18,7 @@
 
 #include <QQmlExtensionPlugin>
 
-class XkcdviewerPlugin : public QQmlExtensionPlugin {
+class XKCDviewerPlugin : public QQmlExtensionPlugin {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 

@@ -22,7 +22,7 @@
 #include <cstdlib>
 #include <ctime>
 
-class Xkcdviewer: public QObject {
+class XKCDviewer: public QObject {
 	Q_OBJECT
 
 	int currentComic = -1;
@@ -54,7 +54,7 @@ public:
 	/**
 	 * Initialize the viewer
 	 */
-	Xkcdviewer();
+	XKCDviewer();
 
 	/**
 	 * Obtain the current comic's data in JSON format

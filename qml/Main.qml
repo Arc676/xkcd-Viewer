@@ -16,7 +16,7 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
-import Xkcdviewer 1.0
+import XKCDviewer 1.0
 
 MainView {
 	id: root
@@ -64,7 +64,7 @@ MainView {
 				id: refreshBtn
 				text: i18n.tr("Reload from source")
 				onClicked: {
-					Xkcdviewer.downloadJSON()
+					XKCDviewer.downloadJSON()
 				}
 			}
 		}
@@ -116,7 +116,7 @@ MainView {
 				id: prevComicBtn
 				text: "<"
 				onClicked: {
-					Xkcdviewer.prevComic()
+					XKCDviewer.prevComic()
 				}
 			}
 
@@ -124,7 +124,7 @@ MainView {
 				id: randomComicBtn
 				text: i18n.tr("Random")
 				onClicked: {
-					Xkcdviewer.randomComic()
+					XKCDviewer.randomComic()
 				}
 			}
 
@@ -137,7 +137,7 @@ MainView {
 				id: nextComicBtn
 				text: ">"
 				onClicked: {
-					Xkcdviewer.nextComic()
+					XKCDviewer.nextComic()
 				}
 			}
 		}

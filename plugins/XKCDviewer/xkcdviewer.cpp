@@ -17,7 +17,7 @@
 
 #include "xkcdviewer.h"
 
-Xkcdviewer::Xkcdviewer() {
+XKCDviewer::XKCDviewer() {
 	// init random
 	srand((unsigned)time(0));
 	// set up networking stuff
@@ -27,15 +27,15 @@ Xkcdviewer::Xkcdviewer() {
 	downloadJSON();
 }
 
-QJsonObject Xkcdviewer::getComicData() {
+QJsonObject XKCDviewer::getComicData() {
 	return comicData;
 }
 
-void Xkcdviewer::updateJSON() {
+void XKCDviewer::updateJSON() {
 	downloadJSON();
 }
 
-void Xkcdviewer::downloadJSON() {
+void XKCDviewer::downloadJSON() {
 	// get URL of needed data
 	QUrl url;
 	if (currentComic > 0) {
@@ -46,33 +46,33 @@ void Xkcdviewer::downloadJSON() {
 	netreply = netmgr->get(QNetworkRequest(url));
 
 	// connect signals
-	connect(netreply, &QIODevice::readyRead, this, &Xkcdviewer::dataReady);
-	connect(netreply, &QNetworkReply::finished, this, &Xkcdviewer::dataFinished);
+	connect(netreply, &QIODevice::readyRead, this, &XKCDviewer::dataReady);
+	connect(netreply, &QNetworkReply::finished, this, &XKCDviewer::dataFinished);
 }
 
-void Xkcdviewer::dataReady() {
+void XKCDviewer::dataReady() {
 	dataBuffer->append(netreply->readAll());
 }
 
-void Xkcdviewer::dataFinished() {
+void XKCDviewer::dataFinished() {
 	comicData = QJsonObject::fromJson(*dataBuffer);
 }
 
-void Xkcdviewer::prevComic() {
+void XKCDviewer::prevComic() {
 	if (currentComic > 1) {
 		currentComic--;
 		updateJSON();
 	}
 }
 
-void Xkcdviewer::nextComic() {
+void XKCDviewer::nextComic() {
 	if (currentComic < latestComic) {
 		currentComic++;
 		updateJSON();
 	}
 }
 
-void Xkcdviewer::randomComic() {
+void XKCDviewer::randomComic() {
 	// take note of the comic that was just seen
 	int justSeen = currentComic;
 	// use modulo to generate a random number in the range (0, latest - 1]
@@ -88,6 +88,6 @@ void Xkcdviewer::randomComic() {
 	updateJSON();
 }
 
-void Xkcdviewer::explainComic() {
+void XKCDviewer::explainComic() {
 }
 
