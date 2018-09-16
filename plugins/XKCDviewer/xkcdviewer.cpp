@@ -33,7 +33,22 @@ XKCDviewer::XKCDviewer() {
 }
 
 void XKCDviewer::updateJSON() {
-	downloadJSON();
+	// retrieve comic data from cache, if present
+	QString comicCache = cacheDir + QString::number(currentComic);
+	if (QDir(comicCache).exists()) {
+		QFile file(comicCache + "/info.0.json");
+		file.open(QIODevice::ReadOnly | QIODevice::Text);
+		QString data = file.readAll();
+		file.close();
+		comicData = QJsonDocument::fromJson(data.toUtf8());
+		imgPath = comicData.object().value("img").toString();
+		imgPath = comicCache + "/" + imgPath.mid(imgPath.lastIndexOf("/") + 1);
+
+		emit doRefreshView();
+		emit imageReady();
+	} else {
+		downloadJSON();
+	}
 }
 
 void XKCDviewer::downloadJSON() {
@@ -144,5 +159,6 @@ void XKCDviewer::randomComic() {
 }
 
 void XKCDviewer::explainComic() {
+	QDesktopServices::openUrl(QUrl("https://www.explainxkcd.com/" + QString::number(currentComic)));
 }
 

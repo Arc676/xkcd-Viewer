@@ -1,12 +1,12 @@
 {
-    "name": "xkcd_viewer.arc676",
+    "name": "xkcdviewer.arc676",
     "description": "Simple xkcd comic viewer",
     "architecture": "@CLICK_ARCH@",
     "title": "xkcd Viewer",
     "hooks": {
-        "xkcd_viewer": {
-            "apparmor": "xkcd_viewer.apparmor",
-            "desktop":  "xkcd_viewer.desktop"
+        "xkcdviewer": {
+            "apparmor": "xkcdviewer.apparmor",
+            "desktop":  "xkcdviewer.desktop"
         }
     },
     "version": "0.1",

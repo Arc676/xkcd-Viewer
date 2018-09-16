@@ -1,4 +1,4 @@
-project(xkcd_viewer C CXX)
+project(xkcdviewer C CXX)
 cmake_minimum_required(VERSION 3.0.0)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -19,8 +19,8 @@ execute_process(
 
 set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
-set(PROJECT_NAME "xkcd_viewer")
-set(FULL_PROJECT_NAME "xkcd_viewer.arc676")
+set(PROJECT_NAME "xkcdviewer")
+set(FULL_PROJECT_NAME "xkcdviewer.arc676")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_FILE_NAME ${PROJECT_NAME}.desktop)

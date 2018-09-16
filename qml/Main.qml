@@ -14,14 +14,13 @@
 //along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.4
-import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import XKCDviewer 1.0
 
 MainView {
 	id: root
 	objectName: 'mainView'
-	applicationName: 'xkcd_viewer.arc676'
+	applicationName: 'xkcdviewer.arc676'
 	automaticOrientation: true
 
 	width: units.gu(45)
@@ -107,7 +106,7 @@ MainView {
 			id: comic
 			source: "../assets/loading.png"
 			fillMode: Image.PreserveAspectFit
-			height: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+			//height: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
 
 			anchors {
 				top: comicTitle.bottom
@@ -116,6 +115,8 @@ MainView {
 				leftMargin: margin
 				right: parent.right
 				rightMargin: margin
+				bottom: titleText.top
+				bottomMargin: margin
 			}
 		}
 
@@ -165,6 +166,9 @@ MainView {
 			Button {
 				id: explainBtn
 				text: i18n.tr("Explain")
+				onClicked: {
+					XKCDviewer.explainComic()
+				}
 			}
 
 			Button {

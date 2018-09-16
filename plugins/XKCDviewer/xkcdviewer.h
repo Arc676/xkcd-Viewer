@@ -18,6 +18,7 @@
 
 #include <QObject>
 #include <QtNetwork>
+#include <QDesktopServices>
 
 #include <cstdlib>
 #include <ctime>
