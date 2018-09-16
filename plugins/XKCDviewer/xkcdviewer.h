@@ -28,7 +28,9 @@ class XKCDviewer: public QObject {
 	int currentComic = -1;
 	int latestComic = -1;
 
+	QString cacheDir;
 	QJsonDocument comicData;
+	QString imgPath;
 
 	// Networking
 	QNetworkAccessManager *netmgr;
@@ -46,9 +48,19 @@ class XKCDviewer: public QObject {
 	void dataReady();
 
 	/**
-	 * Indicate that network data is done being read
+	 * Indicate that comic data is done being read
 	 */
 	void dataFinished();
+
+	/**
+	 * Indicate that image data is done being read
+	 */
+	void imageFinished();
+
+	/**
+	 * Clean up resources used during network interaction
+	 */
+	void networkCleanup();
 
 public:
 	/**
@@ -56,6 +68,7 @@ public:
 	 */
 	XKCDviewer();
 
+	Q_PROPERTY(QString imgPath MEMBER imgPath);
 	Q_PROPERTY(QJsonObject comicData READ getComicData)
 
 	/**
@@ -97,6 +110,8 @@ public:
 
 signals:
 	void doRefreshView();
+	void isLoading();
+	void imageReady();
 };
 
 #endif

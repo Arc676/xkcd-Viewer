@@ -33,13 +33,22 @@ MainView {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			console.log(JSON.stringify(json))
+			comicTitle.text = json["title"]
 			titleText.text = json["alt"]
+		}
+
+		onIsLoading: {
+			showLoading()
+		}
+
+		onImageReady: {
+			comic.source = XKCDviewer.imgPath
 		}
 	}
 
 	function showLoading() {
-		comic.source = "assets/loading.png"
+		comic.source = "../assets/loading.png"
+		comicTitle.text = ""
 		titleText.text = ""
 	}
 
@@ -81,6 +90,19 @@ MainView {
 			}
 		}
 
+		Label {
+			id: comicTitle
+
+			anchors {
+				top: topBar.bottom
+				topMargin: margin
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
+			}
+		}
+
 		Image {
 			id: comic
 			source: "../assets/loading.png"
@@ -88,7 +110,7 @@ MainView {
 			height: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
 
 			anchors {
-				top: topBar.bottom
+				top: comicTitle.bottom
 				topMargin: margin
 				left: parent.left
 				leftMargin: margin

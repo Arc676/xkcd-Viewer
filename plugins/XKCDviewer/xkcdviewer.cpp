@@ -20,6 +20,11 @@
 XKCDviewer::XKCDviewer() {
 	// init random
 	srand((unsigned)time(0));
+	// prepare for cache storage
+	cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/";
+	if (!QDir(cacheDir).exists()) {
+		QDir().mkdir(cacheDir);
+	}
 	// set up networking stuff
 	netmgr = new QNetworkAccessManager(this);
 	dataBuffer = new QByteArray();
@@ -32,6 +37,7 @@ void XKCDviewer::updateJSON() {
 }
 
 void XKCDviewer::downloadJSON() {
+	emit isLoading();
 	// get URL of needed data
 	QUrl url;
 	if (currentComic < 0) {
@@ -57,6 +63,42 @@ void XKCDviewer::dataFinished() {
 		latestComic = comicData.object().value("num").toInt();
 		currentComic = latestComic;
 	}
+	// create cache directory for comic if non-existent
+	QString comicCache = cacheDir + QString::number(currentComic);
+	if (!QDir(comicCache).exists()) {
+		QDir().mkdir(comicCache);
+	}
+	// write JSON to cache
+	QFile file(comicCache + "/info.0.json");
+	file.open(QIODevice::WriteOnly);
+	file.write(*dataBuffer);
+	file.close();
+
+	networkCleanup();
+
+	// download comic image
+	QUrl url(comicData.object().value("img").toString());
+	netreply = netmgr->get(QNetworkRequest(url));
+
+	// connect signals
+	connect(netreply, &QIODevice::readyRead, this, &XKCDviewer::dataReady);
+	connect(netreply, &QNetworkReply::finished, this, &XKCDviewer::imageFinished);
+}
+
+void XKCDviewer::imageFinished() {
+	imgPath = comicData.object().value("img").toString();
+	imgPath = cacheDir + QString::number(currentComic) + "/" + imgPath.mid(imgPath.lastIndexOf("/") + 1);
+	QFile imgFile(imgPath);
+	imgFile.open(QIODevice::WriteOnly);
+	imgFile.write(*dataBuffer);
+	imgFile.close();
+
+	networkCleanup();
+
+	emit imageReady();
+}
+
+void XKCDviewer::networkCleanup() {
 	netreply->deleteLater();
 	netreply = nullptr;
 	dataBuffer->clear();
