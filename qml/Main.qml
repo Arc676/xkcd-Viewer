@@ -42,11 +42,16 @@ MainView {
 
 		onImageReady: {
 			comic.source = XKCDviewer.imgPath
+			var aspectRatio = comic.implicitHeight / comic.implicitWidth
+			flick.contentWidth = flick.wdef
+			flick.contentHeight = aspectRatio * flick.contentWidth
 		}
 	}
 
 	function showLoading() {
 		comic.source = "../assets/loading.png"
+		flick.contentWidth = flick.wdef
+		flick.contentHeight = flick.hdef
 		comicTitle.text = ""
 		titleText.text = ""
 	}
@@ -102,11 +107,13 @@ MainView {
 			}
 		}
 
-		Image {
-			id: comic
-			source: "../assets/loading.png"
-			fillMode: Image.PreserveAspectFit
-			//height: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+		Flickable {
+			id: flick
+
+			property real wdef: parent.width - margin * 2
+			property real hdef: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+
+			contentWidth: wdef
 
 			anchors {
 				top: comicTitle.bottom
@@ -118,11 +125,40 @@ MainView {
 				bottom: titleText.top
 				bottomMargin: margin
 			}
+
+			PinchArea {
+				property real w0
+				property real h0
+				anchors.fill: parent
+
+				onPinchStarted: {
+					w0 = flick.contentWidth
+					h0 = flick.contentHeight
+				}
+
+				onPinchUpdated: {
+					flick.contentX += pinch.previousCenter.x - pinch.center.x
+					flick.contentY += pinch.previousCenter.y - pinch.center.y
+
+					flick.resizeContent(w0 * pinch.scale, h0 * pinch.scale, pinch.center)
+				}
+
+				onPinchFinished: {
+					flick.returnToBounds()
+				}	
+
+				Image {
+					id: comic
+					source: "../assets/loading.png"
+					anchors.fill: parent
+				}
+			}
 		}
 
 		Label {
 			id: titleText
 			text: ""
+			wrapMode: Text.Wrap
 
 			anchors {
 				left: parent.left
