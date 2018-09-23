@@ -1,7 +1,7 @@
 [Desktop Entry]
 _Name=xkcd Viewer
 Exec=qmlscene qml/Main.qml
-Icon=assets/logo.svg
+Icon=assets/icon.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
