@@ -43,8 +43,23 @@ MainView {
 		onImageReady: {
 			comic.source = XKCDviewer.imgPath
 			var aspectRatio = comic.implicitHeight / comic.implicitWidth
-			flick.contentWidth = flick.wdef
-			flick.contentHeight = aspectRatio * flick.contentWidth
+
+			// scale image to fit in flickable container
+			// set dimensions based on aspect ratio
+			// then center image in view
+			if (aspectRatio > 1) {
+				// tall/portrait images
+				flick.contentHeight = flick.hdef
+				flick.contentWidth = flick.contentHeight / aspectRatio
+
+				flick.contentX = -(flick.width - flick.contentWidth) / 2
+			} else {
+				// wide/landscape images
+				flick.contentWidth = flick.wdef
+				flick.contentHeight = flick.contentWidth * aspectRatio
+
+				flick.contentY = -(flick.height - flick.contentHeight) / 2
+			}
 		}
 	}
 
