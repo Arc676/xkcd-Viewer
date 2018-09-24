@@ -28,6 +28,12 @@ MainView {
 
 	property real margin: units.gu(2)
 
+	Loader {
+		id: aboutViewLoader
+		source: "About.qml"
+		visible: false
+	}
+
 	Connections {
 		target: XKCDviewer
 		onDoRefreshView: {
