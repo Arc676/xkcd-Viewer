@@ -17,22 +17,8 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 import XKCDviewer 1.0
 
-MainView {
-	id: root
-	objectName: 'mainView'
-	applicationName: 'xkcdviewer.arc676'
-	automaticOrientation: true
-
-	width: units.gu(45)
-	height: units.gu(75)
-
+Item {
 	property real margin: units.gu(2)
-
-	Loader {
-		id: aboutViewLoader
-		source: "About.qml"
-		visible: false
-	}
 
 	Connections {
 		target: XKCDviewer
@@ -80,17 +66,12 @@ MainView {
 	Page {
 		anchors.fill: parent
 
-		header: PageHeader {
-			id: header
-			title: i18n.tr("xkcd Viewer")
-		}
-
 		Row {
 			id: topBar
 			spacing: margin
 
 			anchors {
-				top: header.bottom
+				top: parent.top
 				topMargin: margin
 				left: parent.left
 				leftMargin: margin
@@ -132,7 +113,7 @@ MainView {
 			id: flick
 
 			property real wdef: parent.width - margin * 2
-			property real hdef: parent.height - header.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+			property real hdef: parent.height - topBar.height - titleText.height - bottomBar.height - margin * 5
 
 			contentWidth: wdef
 

@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=xkcd Viewer
-Exec=qmlscene qml/Main.qml
+Exec=qmlscene qml/Loader.qml
 Icon=assets/icon.png
 Terminal=false
 Type=Application

@@ -16,11 +16,50 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 
-Item {
-	id: aboutView
+MainView {
+	id: root
+	objectName: 'mainView'
+	applicationName: 'xkcdviewer.arc676'
+	automaticOrientation: true
 
-	Label {
-		id: label
-		text: "Hello, world!"
+	width: units.gu(45)
+	height: units.gu(75)
+
+	Page {
+		header: PageHeader {
+			id: header
+			title: i18n.tr("xkcd Viewer")
+
+			Button {
+				id: aboutButton
+				anchors.right: parent.right
+				text: "About"
+
+				property bool onAbout: false
+
+				onClicked: {
+					onAbout = !onAbout;
+					if (onAbout) {
+						text = "Back"
+						viewLoader.source = "About.qml"
+					} else {
+						text = "About"
+						viewLoader.source = "Main.qml"
+					}
+				}
+			}
+		}
+
+		Loader {
+			id: viewLoader
+			source: "Main.qml"
+
+			anchors {
+				top: header.bottom
+				left: parent.left
+				right: parent.right
+				bottom: parent.bottom
+			}
+		}
 	}
 }
