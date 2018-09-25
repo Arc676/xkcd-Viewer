@@ -28,8 +28,6 @@ XKCDviewer::XKCDviewer() {
 	// set up networking stuff
 	netmgr = new QNetworkAccessManager(this);
 	dataBuffer = new QByteArray();
-	// get latest comic
-	downloadJSON();
 }
 
 void XKCDviewer::updateJSON() {

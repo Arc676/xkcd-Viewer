@@ -20,6 +20,8 @@ import XKCDviewer 1.0
 Item {
 	property real margin: units.gu(2)
 
+	Component.onCompleted: XKCDviewer.jumpToLatest()
+
 	Connections {
 		target: XKCDviewer
 		onDoRefreshView: {

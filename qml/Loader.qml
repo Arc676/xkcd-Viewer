@@ -32,8 +32,13 @@ MainView {
 
 			Button {
 				id: aboutButton
-				anchors.right: parent.right
 				text: "About"
+
+				anchors {
+					right: parent.right
+					rightMargin: units.gu(2)
+					verticalCenter: parent.verticalCenter
+				}
 
 				property bool onAbout: false
 
