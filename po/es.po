@@ -1,0 +1,38 @@
+# xkcd Viewer
+# Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# This file is distributed under the same license as the xkcdviewer.arc676 package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xkcdviewer.arc676\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-25 19:45+0000\n"
+"PO-Revision-Date: 2018-09-27 13:40+0100\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: UBports Spanish Team\n"
+"X-Generator: Poedit 2.1.1\n"
+"Last-Translator: Sher852\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
+
+#: ../qml/Loader.qml:31 xkcdviewer.desktop.in.h:1
+msgid "xkcd Viewer"
+msgstr "xkcd Viewer"
+
+#: ../qml/Main.qml:86
+msgid "View latest"
+msgstr "Ver el último"
+
+#: ../qml/Main.qml:94
+msgid "Reload from source"
+msgstr "Recargar desde la fuente"
+
+#: ../qml/Main.qml:200
+msgid "Random"
+msgstr "Aleatorio"
+
+#: ../qml/Main.qml:208
+msgid "Explain"
+msgstr "Explicar"
