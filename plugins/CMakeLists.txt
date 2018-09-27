@@ -1,1 +1,1 @@
-add_subdirectory(Xkcdviewer)
+add_subdirectory(XKCDviewer)
