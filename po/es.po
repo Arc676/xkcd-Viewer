@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: UBports Spanish Team\n"
 "X-Generator: Poedit 2.1.1\n"
-"Last-Translator: Sher852\n"
+"Last-Translator: Sher852 <vincent_shergio@hotmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: es\n"
 
