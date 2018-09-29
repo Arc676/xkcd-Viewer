@@ -1,5 +1,6 @@
 # xkcd Viewer
 # Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# Copyright (C) 2018 Sher852/Sergio Reyes <vincent_shergio@gmail.com>
 # This file is distributed under the same license as the xkcdviewer.arc676 package.
 #
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: UBports Spanish Team\n"
 "X-Generator: Poedit 2.1.1\n"
-"Last-Translator: Sher852 <vincent_shergio@hotmail.com>\n"
+"Last-Translator: Sher852\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: es\n"
 
