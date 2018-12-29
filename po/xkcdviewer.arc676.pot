@@ -1,16 +1,20 @@
-# xkcd Viewer
-# Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xkcdviewer.arc676 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-25 19:45+0000\n"
-"PO-Revision-Date: 2018-09-25 21:46+0002\n"
+"POT-Creation-Date: 2018-12-29 20:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../qml/Loader.qml:31 xkcdviewer.desktop.in.h:1
@@ -22,13 +26,13 @@ msgid "View latest"
 msgstr ""
 
 #: ../qml/Main.qml:94
-msgid "Reload from source"
+msgid "Reload from server"
 msgstr ""
 
-#: ../qml/Main.qml:200
+#: ../qml/Main.qml:201
 msgid "Random"
 msgstr ""
 
-#: ../qml/Main.qml:208
+#: ../qml/Main.qml:209
 msgid "Explain"
 msgstr ""

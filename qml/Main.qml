@@ -18,7 +18,7 @@ import Ubuntu.Components 1.3
 import XKCDviewer 1.0
 
 Item {
-	property real margin: units.gu(2)
+	property real margin: units.gu(1)
 
 	Component.onCompleted: XKCDviewer.jumpToLatest()
 
@@ -26,7 +26,7 @@ Item {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			comicTitle.text = json["title"]
+			comicTitle.text = json["num"] + ": " + json["title"]
 			titleText.text = json["alt"]
 		}
 
@@ -151,10 +151,11 @@ Item {
 					flick.returnToBounds()
 				}	
 
-				Image {
+				AnimatedImage {
 					id: comic
 					source: "../assets/loading.png"
 					anchors.fill: parent
+					onStatusChanged: playing = (status == AnimatedImage.Ready)
 				}
 			}
 		}
