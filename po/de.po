@@ -20,12 +20,20 @@ msgstr ""
 msgid "xkcd Viewer"
 msgstr "xkcd Viewer"
 
+#: ../qml/Loader.qml:35 ../qml/Loader.qml:51
+msgid "About"
+msgstr "Über"
+
+#: ../qml/Loader.qml:48
+msgid "Back"
+msgstr "Zurück"
+
 #: ../qml/Main.qml:86
 msgid "View latest"
 msgstr "Letzten schauen"
 
 #: ../qml/Main.qml:94
-msgid "Reload from source"
+msgid "Reload from server"
 msgstr "Vom Server neu laden"
 
 #: ../qml/Main.qml:200

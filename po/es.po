@@ -22,6 +22,14 @@ msgstr ""
 msgid "xkcd Viewer"
 msgstr "xkcd Viewer"
 
+#: ../qml/Loader.qml:35 ../qml/Loader.qml:51
+msgid "About"
+msgstr "Acerca de"
+
+#: ../qml/Loader.qml:48
+msgid "Back"
+msgstr "Atrás"
+
 #: ../qml/Main.qml:86
 msgid "View latest"
 msgstr "Ver el último"
