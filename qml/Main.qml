@@ -91,7 +91,7 @@ Item {
 
 			Button {
 				id: refreshBtn
-				text: i18n.tr("Reload from source")
+				text: i18n.tr("Reload from server")
 				onClicked: {
 					XKCDviewer.downloadJSON()
 				}
