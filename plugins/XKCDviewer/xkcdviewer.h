@@ -19,6 +19,7 @@
 #include <QObject>
 #include <QtNetwork>
 #include <QDesktopServices>
+#include <QTextDocument>
 
 #include <cstdlib>
 #include <ctime>
@@ -108,6 +109,13 @@ public:
 	 * Go to the explainxkcd page for the current comic
 	 */
 	Q_INVOKABLE void explainComic();
+
+	/**
+	 * Converts HTML text, which may include entities, to plain text
+	 * @param input Input HTML text
+	 * @return Plain text representation of input
+	 */
+	Q_INVOKABLE QString plain(QString input);
 
 signals:
 	void doRefreshView();

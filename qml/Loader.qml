@@ -32,7 +32,7 @@ MainView {
 
 			Button {
 				id: aboutButton
-				text: "About"
+				text: i18n.tr("About")
 
 				anchors {
 					right: parent.right
@@ -45,10 +45,10 @@ MainView {
 				onClicked: {
 					onAbout = !onAbout;
 					if (onAbout) {
-						text = "Back"
+						text = i18n.tr("Back")
 						viewLoader.source = "About.qml"
 					} else {
-						text = "About"
+						text = i18n.tr("About")
 						viewLoader.source = "Main.qml"
 					}
 				}

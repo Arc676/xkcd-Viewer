@@ -26,8 +26,14 @@ Item {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			comicTitle.text = json["num"] + ": " + json["title"]
-			titleText.text = json["alt"]
+			comicTitle.text = json["num"] + ": " + XKCDviewer.plain(decodeURIComponent(escape(json["title"])))
+			titleText.text = XKCDviewer.plain(decodeURIComponent(escape(json["alt"])))
+
+			// update JSON model
+			jsonModel.clear()
+			for (var key in json) {
+				jsonModel.append({"key" : key, "value" : "" + decodeURIComponent(escape(json[key]))})
+			}
 		}
 
 		onIsLoading: {
@@ -96,6 +102,20 @@ Item {
 					XKCDviewer.downloadJSON()
 				}
 			}
+
+			Button {
+				id: comicInfoBtn
+				text: i18n.tr("View JSON")
+
+				property bool showingJSON: false
+
+				onClicked: {
+					showingJSON = !showingJSON
+					jsonView.visible = showingJSON
+					flick.visible = !showingJSON
+					titleText.visible = !showingJSON
+				}
+			}
 		}
 
 		Label {
@@ -156,6 +176,45 @@ Item {
 					source: "../assets/loading.png"
 					anchors.fill: parent
 					onStatusChanged: playing = (status == AnimatedImage.Ready)
+				}
+			}
+		}
+
+		ListView {
+			id: jsonView
+			visible: false
+			model: jsonModel
+			delegate: jsonDelegate
+			anchors {
+				top: comicTitle.bottom
+				topMargin: margin
+				left: parent.left
+				leftMargin: margin
+				right: parent.right
+				rightMargin: margin
+				bottom: bottomBar.top
+				bottomMargin: margin
+			}
+		}
+
+		ListModel {
+			id: jsonModel
+		}
+
+		Component {
+			id: jsonDelegate
+			Row {
+				spacing: margin
+				Text {
+					id: keyLabel
+					wrapMode: Text.Wrap
+					text: key
+					width: units.gu(10)
+				}
+				Text {
+					wrapMode: Text.Wrap
+					text: "" + value
+					width: parent.parent.width - keyLabel.width
 				}
 			}
 		}

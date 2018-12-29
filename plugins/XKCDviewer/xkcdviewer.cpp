@@ -160,3 +160,8 @@ void XKCDviewer::explainComic() {
 	QDesktopServices::openUrl(QUrl("https://www.explainxkcd.com/" + QString::number(currentComic)));
 }
 
+QString XKCDviewer::plain(QString input) {
+	QTextDocument text;
+	text.setHtml(input);
+	return text.toPlainText();
+}
