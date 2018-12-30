@@ -88,14 +88,6 @@ Item {
 			}
 
 			Button {
-				id: latestBtn
-				text: i18n.tr("View latest")
-				onClicked: {
-					XKCDviewer.jumpToLatest()
-				}
-			}
-
-			Button {
 				id: refreshBtn
 				text: i18n.tr("Reload from server")
 				onClicked: {
@@ -214,7 +206,7 @@ Item {
 				Text {
 					wrapMode: Text.Wrap
 					text: "" + value
-					width: parent.parent.width - keyLabel.width
+					width: parent.parent.width - keyLabel.width - margin
 				}
 			}
 		}
@@ -237,6 +229,7 @@ Item {
 		Row {
 			id: bottomBar
 			spacing: margin
+			height: units.gu(5)
 
 			anchors {
 				left: parent.left
@@ -247,35 +240,70 @@ Item {
 				bottomMargin: margin
 			}
 
-			Button {
+			Image {
 				id: prevComicBtn
-				text: "<"
-				onClicked: {
-					XKCDviewer.prevComic()
+				source: "../assets/back.png"
+				height: parent.height
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.prevComic()
+					}
 				}
 			}
 
-			Button {
+			Image {
 				id: randomComicBtn
-				text: i18n.tr("Random")
-				onClicked: {
-					XKCDviewer.randomComic()
+				source: "../assets/r4.png"
+				height: parent.height * 1.5
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.randomComic()
+						var n = Math.floor(Math.random() * 6) + 1
+						randomComicBtn.source = "../assets/r" + n + ".png"
+					}
 				}
 			}
 
 			Button {
 				id: explainBtn
 				text: i18n.tr("Explain")
+				anchors.verticalCenter: parent.verticalCenter
 				onClicked: {
 					XKCDviewer.explainComic()
 				}
 			}
 
-			Button {
+			Image {
 				id: nextComicBtn
-				text: ">"
-				onClicked: {
-					XKCDviewer.nextComic()
+				source: "../assets/next.png"
+				height: parent.height
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.nextComic()
+					}
+				}
+			}
+
+			Image {
+				id: latestBtn
+				source: "../assets/last.png"
+				height: parent.height
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.jumpToLatest()
+					}
 				}
 			}
 		}
