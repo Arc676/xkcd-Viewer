@@ -27,19 +27,3 @@ msgstr "Infos"
 #: ../qml/Loader.qml:48
 msgid "Back"
 msgstr "Retour"
-
-#: ../qml/Main.qml:86
-msgid "View latest"
-msgstr "Montrer la dernière"
-
-#: ../qml/Main.qml:94
-msgid "Reload from server"
-msgstr "Recharger du serveur"
-
-#: ../qml/Main.qml:200
-msgid "Random"
-msgstr "Au hasard"
-
-#: ../qml/Main.qml:208
-msgid "Explain"
-msgstr "Éxpliquer"

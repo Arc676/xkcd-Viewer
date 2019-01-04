@@ -18,7 +18,7 @@ import Ubuntu.Components 1.3
 import XKCDviewer 1.0
 
 Item {
-	property real margin: units.gu(1)
+	property real margin: units.gu(2)
 
 	Component.onCompleted: XKCDviewer.jumpToLatest()
 
@@ -74,47 +74,11 @@ Item {
 	Page {
 		anchors.fill: parent
 
-		Row {
-			id: topBar
-			spacing: margin
-
-			anchors {
-				top: parent.top
-				topMargin: margin
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-			}
-
-			Button {
-				id: refreshBtn
-				text: i18n.tr("Reload from server")
-				onClicked: {
-					XKCDviewer.downloadJSON()
-				}
-			}
-
-			Button {
-				id: comicInfoBtn
-				text: i18n.tr("View JSON")
-
-				property bool showingJSON: false
-
-				onClicked: {
-					showingJSON = !showingJSON
-					jsonView.visible = showingJSON
-					flick.visible = !showingJSON
-					titleText.visible = !showingJSON
-				}
-			}
-		}
-
 		Label {
 			id: comicTitle
 
 			anchors {
-				top: topBar.bottom
+				top: parent.top
 				topMargin: margin
 				left: parent.left
 				leftMargin: margin
@@ -127,7 +91,7 @@ Item {
 			id: flick
 
 			property real wdef: parent.width - margin * 2
-			property real hdef: parent.height - topBar.height - titleText.height - bottomBar.height - margin * 5
+			property real hdef: parent.height - titleText.height - bottomBar.height - margin * 5
 
 			contentWidth: wdef
 
@@ -229,7 +193,7 @@ Item {
 		Row {
 			id: bottomBar
 			spacing: margin
-			height: units.gu(5)
+			height: units.gu(4)
 
 			anchors {
 				left: parent.left
@@ -270,12 +234,52 @@ Item {
 				}
 			}
 
-			Button {
-				id: explainBtn
-				text: i18n.tr("Explain")
+			Image {
+				id: refreshBtn
+				source: "../assets/refresh.png"
+				height: parent.height
+				width: height
 				anchors.verticalCenter: parent.verticalCenter
-				onClicked: {
-					XKCDviewer.explainComic()
+
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.downloadJSON()
+					}
+				}
+			}
+
+			Image {
+				id: comicInfoBtn
+				source: "../assets/json.png"
+				height: parent.height
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+
+				MouseArea {
+					anchors.fill: parent
+					property bool showingJSON: false
+
+					onClicked: {
+						showingJSON = !showingJSON
+						jsonView.visible = showingJSON
+						flick.visible = !showingJSON
+						titleText.visible = !showingJSON
+					}
+				}
+			}
+
+			Image {
+				id: explainBtn
+				source: "../assets/explain.png"
+				height: parent.height
+				width: height
+				anchors.verticalCenter: parent.verticalCenter
+				MouseArea {
+					anchors.fill: parent
+					onClicked: {
+						XKCDviewer.explainComic()
+					}
 				}
 			}
 

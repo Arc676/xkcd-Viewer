@@ -27,19 +27,3 @@ msgstr "Info"
 #: ../qml/Loader.qml:48
 msgid "Back"
 msgstr "Indietro"
-
-#: ../qml/Main.qml:86
-msgid "View latest"
-msgstr "Mostrare l'ultimo"
-
-#: ../qml/Main.qml:94
-msgid "Reload from server"
-msgstr "Ricarica dal server"
-
-#: ../qml/Main.qml:200
-msgid "Random"
-msgstr "A caso"
-
-#: ../qml/Main.qml:208
-msgid "Explain"
-msgstr "Spiega"
