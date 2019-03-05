@@ -17,15 +17,16 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItem
 
-Item {
+Page {
 	id: aboutView
+	header: DefaultHeader {}
 	
 	property real margin: units.gu(2)
 
 	ListItem.ItemSelector {
 		id: selector
 		anchors {
-			top: parent.top
+			top: header.bottom
 			topMargin: margin
 			bottomMargin: margin
 			leftMargin: margin

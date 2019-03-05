@@ -1,4 +1,4 @@
-//Copyright (C) 2018-9  Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+//Copyright (C) 2019  Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
 
 //This program is free software: you can redistribute it and/or modify
 //it under the terms of the GNU General Public License as published by
@@ -15,25 +15,18 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import QtQuick.Window 2.2
 
-Window {
-	width: units.gu(45)
-	height: units.gu(75)
+PageHeader {
+	id: header
+	title: i18n.tr("xkcd Viewer")
 
-	MainView {
-		id: root
-		objectName: 'mainView'
-		applicationName: 'xkcdviewer.arc676'
-		automaticOrientation: true
-
-		PageStack {
-			id: pageStack
-		}
-
-		Component.onCompleted: {
-			pageStack.clear()
-			pageStack.push(Qt.resolvedUrl("Main.qml"))
-		}
+	trailingActionBar {
+		actions: [
+			Action {
+				iconName: "info"
+				text: i18n.tr("About")
+				onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
+			}
+		]
 	}
 }
