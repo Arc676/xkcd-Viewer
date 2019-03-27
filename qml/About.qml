@@ -33,18 +33,21 @@ Page {
 			rightMargin: margin
 			horizontalCenter: parent.horizontalCenter
 		}
+
 		model: [
 			"GPLv3 - xkcd Viewer by Arc676",
 			"CC BY-NC 2.5 - xkcd by Randall Munroe",
 			"MIT - icons by Michael Amaral"
 		]
+
 		expanded: false
-		onExpansionCompleted: {
+
+		onDelegateClicked: {
 			gplv3.visible = false
 			ccbync.visible = false
 			mit.visible = false
 
-			switch (selectedIndex) {
+			switch (index) {
 			default:
 			case 0:
 				gplv3.visible = true
@@ -60,7 +63,6 @@ Page {
 	}
 
 	Item {
-
 		anchors {
 			top: selector.bottom
 			topMargin: margin
