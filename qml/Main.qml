@@ -1,17 +1,16 @@
-//Copyright (C) 2018-9  Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+// Copyright (C) 2018-9  Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
 
-//This program is free software: you can redistribute it and/or modify
-//it under the terms of the GNU General Public License as published by
-//the Free Software Foundation (version 3) with the exception that
-//linking the OpenSSL library is allowed.
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation (version 3)
 
-//This program is distributed in the hope that it will be useful,
-//but WITHOUT ANY WARRANTY; without even the implied warranty of
-//MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//GNU General Public License for more details.
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 
-//You should have received a copy of the GNU General Public License
-//along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
@@ -72,243 +71,239 @@ Page {
 		titleText.text = ""
 	}
 
-	Page {
-		anchors.fill: parent
+	Label {
+		id: comicTitle
 
-		Label {
-			id: comicTitle
+		anchors {
+			top: header.bottom
+			topMargin: margin
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+		}
+	}
 
-			anchors {
-				top: parent.top
-				topMargin: margin
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-			}
+	Flickable {
+		id: flick
+
+		property real wdef: parent.width - margin * 2
+		property real hdef: parent.height - titleText.height - bottomBar.height - margin * 5
+
+		contentWidth: wdef
+
+		anchors {
+			top: comicTitle.bottom
+			topMargin: margin
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+			bottom: titleText.top
+			bottomMargin: margin
 		}
 
-		Flickable {
-			id: flick
+		PinchArea {
+			property real w0
+			property real h0
+			anchors.fill: parent
 
-			property real wdef: parent.width - margin * 2
-			property real hdef: parent.height - titleText.height - bottomBar.height - margin * 5
-
-			contentWidth: wdef
-
-			anchors {
-				top: comicTitle.bottom
-				topMargin: margin
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-				bottom: titleText.top
-				bottomMargin: margin
+			onPinchStarted: {
+				w0 = flick.contentWidth
+				h0 = flick.contentHeight
 			}
 
-			PinchArea {
-				property real w0
-				property real h0
+			onPinchUpdated: {
+				flick.contentX += pinch.previousCenter.x - pinch.center.x
+				flick.contentY += pinch.previousCenter.y - pinch.center.y
+
+				flick.resizeContent(w0 * pinch.scale, h0 * pinch.scale, pinch.center)
+			}
+
+			onPinchFinished: {
+				flick.returnToBounds()
+			}	
+
+			AnimatedImage {
+				id: comic
+				source: "../assets/loading.png"
 				anchors.fill: parent
-
-				onPinchStarted: {
-					w0 = flick.contentWidth
-					h0 = flick.contentHeight
-				}
-
-				onPinchUpdated: {
-					flick.contentX += pinch.previousCenter.x - pinch.center.x
-					flick.contentY += pinch.previousCenter.y - pinch.center.y
-
-					flick.resizeContent(w0 * pinch.scale, h0 * pinch.scale, pinch.center)
-				}
-
-				onPinchFinished: {
-					flick.returnToBounds()
-				}	
-
-				AnimatedImage {
-					id: comic
-					source: "../assets/loading.png"
-					anchors.fill: parent
-					onStatusChanged: playing = (status == AnimatedImage.Ready)
-				}
+				onStatusChanged: playing = (status == AnimatedImage.Ready)
 			}
 		}
+	}
 
-		ListView {
-			id: jsonView
-			visible: false
-			model: jsonModel
-			delegate: jsonDelegate
-			anchors {
-				top: comicTitle.bottom
-				topMargin: margin
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-				bottom: bottomBar.top
-				bottomMargin: margin
-			}
+	ListView {
+		id: jsonView
+		visible: false
+		model: jsonModel
+		delegate: jsonDelegate
+		anchors {
+			top: comicTitle.bottom
+			topMargin: margin
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+			bottom: bottomBar.top
+			bottomMargin: margin
 		}
+	}
 
-		ListModel {
-			id: jsonModel
-		}
+	ListModel {
+		id: jsonModel
+	}
 
-		Component {
-			id: jsonDelegate
-			Row {
-				spacing: margin
-				Text {
-					id: keyLabel
-					wrapMode: Text.Wrap
-					text: key
-					width: units.gu(10)
-				}
-				Text {
-					wrapMode: Text.Wrap
-					text: "" + value
-					width: parent.parent.width - keyLabel.width - margin
-				}
-			}
-		}
-
-		Label {
-			id: titleText
-			text: ""
-			wrapMode: Text.Wrap
-
-			anchors {
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-				bottom: bottomBar.top
-				bottomMargin: margin
-			}
-		}
-
+	Component {
+		id: jsonDelegate
 		Row {
-			id: bottomBar
 			spacing: margin
-			height: units.gu(4)
-
-			anchors {
-				left: parent.left
-				leftMargin: margin
-				right: parent.right
-				rightMargin: margin
-				bottom: parent.bottom
-				bottomMargin: margin
+			Text {
+				id: keyLabel
+				wrapMode: Text.Wrap
+				text: key
+				width: units.gu(10)
 			}
+			Text {
+				wrapMode: Text.Wrap
+				text: "" + value
+				width: parent.parent.width - keyLabel.width - margin
+			}
+		}
+	}
 
-			Image {
-				id: prevComicBtn
-				source: "../assets/back.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.prevComic()
-					}
+	Label {
+		id: titleText
+		text: ""
+		wrapMode: Text.Wrap
+
+		anchors {
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+			bottom: bottomBar.top
+			bottomMargin: margin
+		}
+	}
+
+	Row {
+		id: bottomBar
+		spacing: margin
+		height: units.gu(4)
+
+		anchors {
+			left: parent.left
+			leftMargin: margin
+			right: parent.right
+			rightMargin: margin
+			bottom: parent.bottom
+			bottomMargin: margin
+		}
+
+		Image {
+			id: prevComicBtn
+			source: "../assets/back.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.prevComic()
 				}
 			}
+		}
 
-			Image {
-				id: randomComicBtn
-				source: "../assets/r4.png"
-				height: parent.height * 1.5
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.randomComic()
-						var n = Math.floor(Math.random() * 6) + 1
-						randomComicBtn.source = "../assets/r" + n + ".png"
-					}
+		Image {
+			id: randomComicBtn
+			source: "../assets/r4.png"
+			height: parent.height * 1.5
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.randomComic()
+					var n = Math.floor(Math.random() * 6) + 1
+					randomComicBtn.source = "../assets/r" + n + ".png"
 				}
 			}
+		}
 
-			Image {
-				id: refreshBtn
-				source: "../assets/refresh.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
+		Image {
+			id: refreshBtn
+			source: "../assets/refresh.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
 
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.downloadJSON()
-					}
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.downloadJSON()
 				}
 			}
+		}
 
-			Image {
-				id: comicInfoBtn
-				source: "../assets/json.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
+		Image {
+			id: comicInfoBtn
+			source: "../assets/json.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
 
-				MouseArea {
-					anchors.fill: parent
-					property bool showingJSON: false
+			MouseArea {
+				anchors.fill: parent
+				property bool showingJSON: false
 
-					onClicked: {
-						showingJSON = !showingJSON
-						jsonView.visible = showingJSON
-						flick.visible = !showingJSON
-						titleText.visible = !showingJSON
-					}
+				onClicked: {
+					showingJSON = !showingJSON
+					jsonView.visible = showingJSON
+					flick.visible = !showingJSON
+					titleText.visible = !showingJSON
 				}
 			}
+		}
 
-			Image {
-				id: explainBtn
-				source: "../assets/explain.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.explainComic()
-					}
+		Image {
+			id: explainBtn
+			source: "../assets/explain.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.explainComic()
 				}
 			}
+		}
 
-			Image {
-				id: nextComicBtn
-				source: "../assets/next.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.nextComic()
-					}
+		Image {
+			id: nextComicBtn
+			source: "../assets/next.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.nextComic()
 				}
 			}
+		}
 
-			Image {
-				id: latestBtn
-				source: "../assets/last.png"
-				height: parent.height
-				width: height
-				anchors.verticalCenter: parent.verticalCenter
-				MouseArea {
-					anchors.fill: parent
-					onClicked: {
-						XKCDviewer.jumpToLatest()
-					}
+		Image {
+			id: latestBtn
+			source: "../assets/last.png"
+			height: parent.height
+			width: height
+			anchors.verticalCenter: parent.verticalCenter
+			MouseArea {
+				anchors.fill: parent
+				onClicked: {
+					XKCDviewer.jumpToLatest()
 				}
 			}
 		}
