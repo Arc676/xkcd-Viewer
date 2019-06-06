@@ -1,5 +1,6 @@
 {
 	"policy_groups": [
+		"content_exchange_source",
 		"networking"
 	],
 	"policy_version": 16.04

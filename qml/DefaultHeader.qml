@@ -32,6 +32,24 @@ PageHeader {
 				visible: pageStack.depth === 1
 				text: i18n.tr("Jump to Comic")
 				onTriggered: comicView.jumpToComic()
+			},
+			Action {
+				iconName: "share"
+				visible: pageStack.depth === 1
+				text: i18n.tr("Share Comic")
+				onTriggered: comicView.shareComic()
+			},
+			Action {
+				iconName: "stock_link"
+				visible: pageStack.depth === 1
+				text: i18n.tr("Share Link")
+				onTriggered: comicView.shareLink()
+			},
+			Action {
+				iconName: "save-as"
+				visible: pageStack.depth === 1
+				text: i18n.tr("Save Comic")
+				onTriggered: comicView.saveComic()
 			}
 		]
 	}

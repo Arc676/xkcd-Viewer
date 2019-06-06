@@ -6,6 +6,7 @@
     "hooks": {
         "xkcdviewer": {
             "apparmor": "xkcdviewer.apparmor",
+            "content-hub": "xkcdviewer-content.json",
             "desktop":  "xkcdviewer.desktop"
         }
     },

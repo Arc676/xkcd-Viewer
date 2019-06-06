@@ -38,6 +38,25 @@ Page {
 		}
 	}
 
+	property SharePage sharePage: SharePage { visible: false }
+
+	function saveComic() {
+		var page = pageStack.push(sharePage)
+		page.saveComic(XKCDviewer.imgPath)
+	}
+
+	function shareLink() {
+		var json = XKCDviewer.comicData
+		var comicNum = json["num"]
+		var page = pageStack.push(sharePage)
+		page.shareLink("https://xkcd.com/" + comicNum)
+	}
+
+	function shareComic() {
+		var page = pageStack.push(sharePage)
+		page.shareComic(XKCDviewer.imgPath)
+	}
+
 	Connections {
 		target: XKCDviewer
 		onDoRefreshView: {
