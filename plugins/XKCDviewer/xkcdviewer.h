@@ -105,6 +105,12 @@ public:
 	Q_INVOKABLE void randomComic();
 
 	/**
+	 * Jumps to a specific comic
+	 * @param comic The comic number
+	 */
+	Q_INVOKABLE void jumpTo(int comic);
+
+	/**
 	 * Go to the explainxkcd page for the current comic
 	 */
 	Q_INVOKABLE void explainComic();

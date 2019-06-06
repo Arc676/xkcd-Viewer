@@ -146,13 +146,20 @@ void XKCDviewer::randomComic() {
 	// add 1 to make the range (1, latest - 1)
 	currentComic = rand() % (latestComic - 1) + 1;
 	// if the new comic number >= the one that was just seen, shift one over
-	// the new comic is now in one of the ranges (1, justSeen], [justSeed, latest),
+	// the new comic is now in one of the ranges [1, justSeen), (justSeed, latest],
 	// thus giving each comic equal probability (ignoring bias introduced by rand + mod)
 	// while avoiding the same comic being picked by RNG
 	if (currentComic >= justSeen) {
 		currentComic++;
 	}
 	updateJSON();
+}
+
+void XKCDviewer::jumpTo(int comic) {
+	if (comic > 0 && comic <= latestComic) {
+		currentComic = comic;
+		updateJSON();
+	}
 }
 
 void XKCDviewer::explainComic() {

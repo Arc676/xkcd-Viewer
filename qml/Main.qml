@@ -14,13 +14,29 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import XKCDviewer 1.0
 
 Page {
+	id: comicView
 	property real margin: units.gu(2)
 	header: DefaultHeader {}
 
 	Component.onCompleted: XKCDviewer.jumpToLatest()
+
+	function jumpToComic() {
+		PopupUtils.open(jumpDialog, comicView, {})
+	}
+
+	Component {
+		id: jumpDialog
+
+		JumpDialog {
+			onJump: {
+				XKCDviewer.jumpTo(selected)
+			}
+		}
+	}
 
 	Connections {
 		target: XKCDviewer

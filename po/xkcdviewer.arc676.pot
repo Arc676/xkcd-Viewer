@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xkcdviewer.arc676 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xkcdviewer.arc676\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-06 13:18+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/JumpDialog.qml:25
+msgid "Which comic would you like to view?"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:29
+msgid "Comic number"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:34
+msgid "View Comic"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:44
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:20 xkcdviewer.desktop.in.h:1
+msgid "xkcd Viewer"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:27
+msgid "About"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:33
+msgid "Jump to Comic"
+msgstr ""
