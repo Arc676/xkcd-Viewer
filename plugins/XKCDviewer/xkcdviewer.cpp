@@ -166,7 +166,6 @@ void XKCDviewer::explainComic() {
 
 QList<QVariant> XKCDviewer::search(QVariant query) {
 	QString searchQuery = query.toString();
-	qDebug() << "Query: " << searchQuery;
 	QList<QVariant> results = QList<QVariant>();
 	for (int comic = 1; comic < latestComic; comic++) {
 		QString comicCache = cacheDir + QString::number(comic);

@@ -23,10 +23,7 @@ int SearchResultsModel::rowCount(const QModelIndex &parent) const {
 }
 
 QVariant SearchResultsModel::data(const QModelIndex &index, int role) const {
-	QJsonDocument json = searchResults[index.row()].toJsonDocument();
-	QString num = QString::number(json.object().value("num").toInt());
-	QString ret = QString("%1: %2").arg(num, json.object().value("title").toString());
-	return QVariant(ret);
+	return QVariant(searchResults[index.row()].toJsonDocument().object());
 }
 
 QHash<int, QByteArray> SearchResultsModel::roleNames() const {

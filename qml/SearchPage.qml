@@ -66,7 +66,12 @@ Page {
 		model: SearchResultsModel {}
 		delegate: ListItem {
 			Label {
-				text: comicID
+				text: comicID["num"] + ": " + comicID["title"]
+			}
+
+			onClicked: {
+				pageStack.pop()
+				XKCDviewer.jumpTo(comicID["num"])
 			}
 		}
 	}
