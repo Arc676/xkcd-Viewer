@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-06 14:47+0000\n"
+"POT-Creation-Date: 2019-06-06 20:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,46 +17,56 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/SharePage.qml:22
+#: ../qml/SharePage.qml:22 ../qml/build/tmp/SharePage.qml:22
 msgid "Send Comic To..."
 msgstr ""
 
-#: ../qml/JumpDialog.qml:25
+#: ../qml/JumpDialog.qml:25 ../qml/build/tmp/JumpDialog.qml:25
 msgid "Which comic would you like to view?"
 msgstr ""
 
-#: ../qml/JumpDialog.qml:29
+#: ../qml/JumpDialog.qml:29 ../qml/build/tmp/JumpDialog.qml:29
 msgid "Comic number"
 msgstr ""
 
-#: ../qml/JumpDialog.qml:34
+#: ../qml/JumpDialog.qml:34 ../qml/build/tmp/JumpDialog.qml:34
 msgid "View Comic"
 msgstr ""
 
-#: ../qml/JumpDialog.qml:44
+#: ../qml/JumpDialog.qml:44 ../qml/build/tmp/JumpDialog.qml:44
 msgid "Cancel"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:20 xkcdviewer.desktop.in.h:1
+#: ../qml/SearchPage.qml:36 ../qml/build/tmp/SearchPage.qml:36
+msgid "Query:"
+msgstr ""
+
+#: ../qml/SearchPage.qml:45 ../qml/DefaultHeader.qml:39
+#: ../qml/build/tmp/SearchPage.qml:44 ../qml/build/tmp/DefaultHeader.qml:39
+msgid "Search"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:20 ../qml/build/tmp/DefaultHeader.qml:20
+#: xkcdviewer.desktop.in.h:1
 msgid "xkcd Viewer"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:27
+#: ../qml/DefaultHeader.qml:27 ../qml/build/tmp/DefaultHeader.qml:27
 msgid "About"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:33
+#: ../qml/DefaultHeader.qml:33 ../qml/build/tmp/DefaultHeader.qml:33
 msgid "Jump to Comic"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:39
+#: ../qml/DefaultHeader.qml:45 ../qml/build/tmp/DefaultHeader.qml:45
 msgid "Share Comic"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:45
+#: ../qml/DefaultHeader.qml:51 ../qml/build/tmp/DefaultHeader.qml:51
 msgid "Share Link"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:51
+#: ../qml/DefaultHeader.qml:57 ../qml/build/tmp/DefaultHeader.qml:57
 msgid "Save Comic"
 msgstr ""

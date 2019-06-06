@@ -19,7 +19,6 @@ import XKCDviewer 1.0
 
 Page {
 	id: comicView
-	property real margin: units.gu(2)
 	header: DefaultHeader {}
 
 	Component.onCompleted: XKCDviewer.jumpToLatest()

@@ -12,8 +12,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <QDebug>
-
 #include "xkcdviewer.h"
 
 XKCDviewer::XKCDviewer() {
@@ -164,6 +162,26 @@ void XKCDviewer::jumpTo(int comic) {
 
 void XKCDviewer::explainComic() {
 	QDesktopServices::openUrl(QUrl("https://www.explainxkcd.com/" + QString::number(currentComic)));
+}
+
+QList<QVariant> XKCDviewer::search(QVariant query) {
+	QString searchQuery = query.toString();
+	qDebug() << "Query: " << searchQuery;
+	QList<QVariant> results = QList<QVariant>();
+	for (int comic = 1; comic < latestComic; comic++) {
+		QString comicCache = cacheDir + QString::number(comic);
+		if (QDir(comicCache).exists()) {
+			QFile file(comicCache + "/info.0.json");
+			file.open(QIODevice::ReadOnly | QIODevice::Text);
+			QString data = file.readAll();
+			file.close();
+			if (data.contains(searchQuery, Qt::CaseInsensitive)) {
+				QJsonDocument comicID = QJsonDocument::fromJson(data.toUtf8());
+				results.push_back(QVariant(comicID));
+			}
+		}
+	}
+	return results;
 }
 
 QString XKCDviewer::plain(QString input) {

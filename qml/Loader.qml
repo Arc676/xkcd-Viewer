@@ -21,6 +21,7 @@ MainView {
 	objectName: 'mainView'
 	applicationName: 'xkcdviewer.arc676'
 	automaticOrientation: true
+	property real margin: units.gu(2)
 
 	width: units.gu(45)
 	height: units.gu(75)
@@ -28,10 +29,18 @@ MainView {
 	PageStack {
 		id: pageStack
 		anchors.fill: parent
-	}
 
-	Component.onCompleted: {
-		pageStack.clear()
-		pageStack.push(Qt.resolvedUrl("Main.qml"))
+		property SearchPage searchPage: SearchPage {
+			visible: false
+		}
+
+		property Main comicView: Main {
+			visible: false
+		}
+
+		Component.onCompleted: {
+			pageStack.clear()
+			pageStack.push(comicView)
+		}
 	}
 }

@@ -17,8 +17,10 @@
 
 #include "plugin.h"
 #include "xkcdviewer.h"
+#include "searchresultsmodel.h"
 
 void XKCDviewerPlugin::registerTypes(const char *uri) {
     //@uri XKCDviewer
     qmlRegisterSingletonType<XKCDviewer>(uri, 1, 0, "XKCDviewer", [](QQmlEngine*, QJSEngine*) -> QObject* { return new XKCDviewer; });
+    qmlRegisterType<SearchResultsModel>(uri, 1, 0, "SearchResultsModel");
 }

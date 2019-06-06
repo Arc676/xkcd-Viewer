@@ -5,6 +5,7 @@ set(
     SRC
     plugin.cpp
     xkcdviewer.cpp
+    searchresultsmodel.cpp
 )
 
 set(CMAKE_AUTOMOC ON)

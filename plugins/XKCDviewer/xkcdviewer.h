@@ -19,6 +19,8 @@
 #include <QtNetwork>
 #include <QDesktopServices>
 #include <QTextDocument>
+#include <QVariant>
+#include <QList>
 
 #include <cstdlib>
 #include <ctime>
@@ -114,6 +116,14 @@ public:
 	 * Go to the explainxkcd page for the current comic
 	 */
 	Q_INVOKABLE void explainComic();
+
+	/**
+	 * Searches the cache for comics whose metadata
+	 * matches the given query
+	 * @param query The search query
+	 * @return List of comics matching the query
+	 */
+	Q_INVOKABLE QList<QVariant> search(QVariant query);
 
 	/**
 	 * Converts HTML text, which may include entities, to plain text
