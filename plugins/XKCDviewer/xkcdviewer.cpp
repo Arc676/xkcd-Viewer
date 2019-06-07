@@ -183,8 +183,6 @@ QList<QVariant> XKCDviewer::search(QVariant query) {
 	return results;
 }
 
-QString XKCDviewer::plain(QString input) {
-	QTextDocument text;
-	text.setHtml(input);
-	return text.toPlainText();
+QString XKCDviewer::valueToPlainText(QString key) {
+	return comicData.object().value(key).toString();
 }

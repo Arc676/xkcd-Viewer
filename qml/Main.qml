@@ -60,13 +60,13 @@ Page {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			comicTitle.text = json["num"] + ": " + XKCDviewer.plain(decodeURIComponent(escape(json["title"])))
-			titleText.text = XKCDviewer.plain(decodeURIComponent(escape(json["alt"])))
+			comicTitle.text = json["num"] + ": " + XKCDviewer.valueToPlainText("title")
+			titleText.text = XKCDviewer.valueToPlainText("alt")
 
 			// update JSON model
 			jsonModel.clear()
 			for (var key in json) {
-				jsonModel.append({"key" : key, "value" : "" + decodeURIComponent(escape(json[key]))})
+				jsonModel.append({"key" : key, "value" : XKCDviewer.valueToPlainText(key)})
 			}
 		}
 

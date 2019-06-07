@@ -126,11 +126,11 @@ public:
 	Q_INVOKABLE QList<QVariant> search(QVariant query);
 
 	/**
-	 * Converts HTML text, which may include entities, to plain text
-	 * @param input Input HTML text
-	 * @return Plain text representation of input
+	 * Converts UTF encoded text from comic data into plain text
+	 * @param key Key value for the data
+	 * @return Plain text representation of the requested value
 	 */
-	Q_INVOKABLE QString plain(QString input);
+	Q_INVOKABLE QString valueToPlainText(QString key);
 
 signals:
 	void doRefreshView();
