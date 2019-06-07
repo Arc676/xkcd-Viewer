@@ -28,16 +28,16 @@ PageHeader {
 				onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
 			},
 			Action {
-				iconName: "tag"
-				visible: pageStack.depth === 1
-				text: i18n.tr("Jump to Comic")
-				onTriggered: pageStack.comicView.jumpToComic()
-			},
-			Action {
 				iconName: "find"
 				visible: pageStack.depth === 1
 				text: i18n.tr("Search")
 				onTriggered: pageStack.push(pageStack.searchPage)
+			},
+			Action {
+				iconName: "tag"
+				visible: pageStack.depth === 1
+				text: i18n.tr("Jump to Comic")
+				onTriggered: pageStack.comicView.jumpToComic()
 			},
 			Action {
 				iconName: "share"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-07 05:53+0000\n"
+"POT-Creation-Date: 2019-06-07 15:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Query:"
 msgstr ""
 
-#: ../qml/SearchPage.qml:45 ../qml/DefaultHeader.qml:39
+#: ../qml/SearchPage.qml:45 ../qml/DefaultHeader.qml:33
 #: ../qml/build/tmp/SearchPage.qml:44 ../qml/build/tmp/DefaultHeader.qml:39
 msgid "Search"
 msgstr ""
@@ -55,7 +55,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:33 ../qml/build/tmp/DefaultHeader.qml:33
+#: ../qml/DefaultHeader.qml:39 ../qml/build/tmp/DefaultHeader.qml:33
 msgid "Jump to Comic"
 msgstr ""
 

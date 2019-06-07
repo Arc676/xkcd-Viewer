@@ -79,18 +79,17 @@ Page {
 			var aspectRatio = comic.implicitHeight / comic.implicitWidth
 
 			// scale image to fit in flickable container
-			// set dimensions based on aspect ratio
 			// then center image in view
-			if (aspectRatio > 1) {
+			if (flick.width * aspectRatio > flick.height) {
 				// tall/portrait images
-				flick.contentHeight = flick.hdef
-				flick.contentWidth = flick.contentHeight / aspectRatio
+				flick.contentHeight = flick.height
+				flick.contentWidth = flick.height / aspectRatio
 
 				flick.contentX = -(flick.width - flick.contentWidth) / 2
 			} else {
 				// wide/landscape images
-				flick.contentWidth = flick.wdef
-				flick.contentHeight = flick.contentWidth * aspectRatio
+				flick.contentWidth = flick.width
+				flick.contentHeight = flick.width * aspectRatio
 
 				flick.contentY = -(flick.height - flick.contentHeight) / 2
 			}
@@ -99,8 +98,8 @@ Page {
 
 	function showLoading() {
 		comic.source = "../assets/loading.png"
-		flick.contentWidth = flick.wdef
-		flick.contentHeight = flick.hdef
+		flick.contentWidth = flick.width
+		flick.contentHeight = flick.height
 		comicTitle.text = ""
 		titleText.text = ""
 	}
@@ -121,10 +120,7 @@ Page {
 	Flickable {
 		id: flick
 
-		property real wdef: parent.width - margin * 2
-		property real hdef: parent.height - titleText.height - bottomBar.height - margin * 5
-
-		contentWidth: wdef
+		contentWidth: width
 
 		anchors {
 			top: comicTitle.bottom
