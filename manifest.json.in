@@ -10,7 +10,7 @@
             "desktop":  "xkcdviewer.desktop"
         }
     },
-    "version": "0.2",
+    "version": "0.3",
     "maintainer": "Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>",
     "framework" : "ubuntu-sdk-16.04"
 }
