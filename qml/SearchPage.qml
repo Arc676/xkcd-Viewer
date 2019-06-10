@@ -14,11 +14,17 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 import XKCDviewer 1.0
 
 Page {
 	id: searchView
 	header: DefaultHeader {}
+
+	Component {
+		id: resultsDialog
+		NoResultsDialog {}
+	}
 
 	Row {
 		id: searchRow
@@ -45,7 +51,10 @@ Page {
 			text: i18n.tr("Search")
 			onClicked: {
 				var query = searchField.text
-				searchResults.model.load(XKCDviewer.search(query))
+				var hasResults = searchResults.model.load(XKCDviewer.search(query))
+				if (!hasResults) {
+					PopupUtils.open(resultsDialog, searchView, {})
+				}
 			}
 		}
 	}

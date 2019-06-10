@@ -28,14 +28,19 @@ class SearchResultsModel : public QAbstractTableModel {
 	};
 public:
 	int columnCount(const QModelIndex &parent) const;
-
 	int rowCount(const QModelIndex &parent = QModelIndex()) const;
-
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-
 	QHash<int, QByteArray> roleNames() const;
 
-	Q_INVOKABLE void load(QList<QVariant> results);
+	/**
+	 * Load a set of search results into the table
+	 * @param results The obtained search results
+	 * @return Whether there are any search results to display
+	 */
+	Q_INVOKABLE bool load(QList<QVariant> results);
 
+	/**
+	 * Utility function for refreshing the table
+	 */
 	Q_INVOKABLE void emitReset();
 };

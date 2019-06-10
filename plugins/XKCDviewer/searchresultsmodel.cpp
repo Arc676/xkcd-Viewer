@@ -32,9 +32,10 @@ QHash<int, QByteArray> SearchResultsModel::roleNames() const {
 	return names;
 }
 
-void SearchResultsModel::load(QList<QVariant> results) {
+bool SearchResultsModel::load(QList<QVariant> results) {
 	searchResults = results;
 	emitReset();
+	return searchResults.size() > 0;
 }
 
 void SearchResultsModel::emitReset() {
