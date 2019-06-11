@@ -77,12 +77,19 @@ void XKCDviewer::dataFinished() {
 	comicData = QJsonDocument::fromJson(*dataBuffer);
 	emit doRefreshView();
 	if (currentComic < 0) {
-		latestComic = comicData.object().value("num").toInt();
-		QFile file(cacheDir + "/latest");
-		file.open(QIODevice::WriteOnly);
-		file.write(qPrintable(QString::number(latestComic)));
-		file.close();
-		currentComic = latestComic;
+		int newLatest = comicData.object().value("num").toInt();
+		if (newLatest > 0) {
+			latestComic = newLatest;
+			QFile file(cacheDir + "/latest");
+			file.open(QIODevice::WriteOnly);
+			file.write(qPrintable(QString::number(latestComic)));
+			file.close();
+			currentComic = latestComic;
+		} else {
+			currentComic = latestComic;
+			updateJSON();
+			return;
+		}
 	}
 	// create cache directory for comic if non-existent
 	QString comicCache = cacheDir + QString::number(currentComic);
