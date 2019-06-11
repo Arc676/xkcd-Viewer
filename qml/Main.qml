@@ -27,6 +27,10 @@ Page {
 		PopupUtils.open(jumpDialog, comicView, {})
 	}
 
+	function latestCached() {
+		XKCDviewer.latestCached()
+	}
+
 	Component {
 		id: jumpDialog
 

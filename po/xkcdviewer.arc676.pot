@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-10 16:19+0000\n"
+"POT-Creation-Date: 2019-06-11 21:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,22 +61,26 @@ msgstr ""
 msgid "xkcd Viewer"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:27 ../qml/build/tmp/DefaultHeader.qml:27
-msgid "About"
+#: ../qml/DefaultHeader.qml:27
+msgid "Newest Cached"
 msgstr ""
 
 #: ../qml/DefaultHeader.qml:39 ../qml/build/tmp/DefaultHeader.qml:33
 msgid "Jump to Comic"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:45 ../qml/build/tmp/DefaultHeader.qml:45
+#: ../qml/DefaultHeader.qml:45 ../qml/build/tmp/DefaultHeader.qml:27
+msgid "About"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:51 ../qml/build/tmp/DefaultHeader.qml:45
 msgid "Share Comic"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:51 ../qml/build/tmp/DefaultHeader.qml:51
+#: ../qml/DefaultHeader.qml:57 ../qml/build/tmp/DefaultHeader.qml:51
 msgid "Share Link"
 msgstr ""
 
-#: ../qml/DefaultHeader.qml:57 ../qml/build/tmp/DefaultHeader.qml:57
+#: ../qml/DefaultHeader.qml:63 ../qml/build/tmp/DefaultHeader.qml:57
 msgid "Save Comic"
 msgstr ""

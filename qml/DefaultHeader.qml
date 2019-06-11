@@ -22,10 +22,10 @@ PageHeader {
 	trailingActionBar {
 		actions: [
 			Action {
-				iconName: "info"
+				iconName: "go-last"
 				visible: pageStack.depth === 1
-				text: i18n.tr("About")
-				onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
+				text: i18n.tr("Newest Cached")
+				onTriggered: pageStack.comicView.latestCached()
 			},
 			Action {
 				iconName: "find"
@@ -38,6 +38,12 @@ PageHeader {
 				visible: pageStack.depth === 1
 				text: i18n.tr("Jump to Comic")
 				onTriggered: pageStack.comicView.jumpToComic()
+			},
+			Action {
+				iconName: "info"
+				visible: pageStack.depth === 1
+				text: i18n.tr("About")
+				onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
 			},
 			Action {
 				iconName: "share"

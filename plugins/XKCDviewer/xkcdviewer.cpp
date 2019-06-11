@@ -22,6 +22,13 @@ XKCDviewer::XKCDviewer() {
 	if (!QDir(cacheDir).exists()) {
 		QDir().mkdir(cacheDir);
 	}
+	// load comic count in case network for offline use
+	QFile file(cacheDir + "/latest");
+	if (file.open(QIODevice::ReadOnly)) {
+		QString data = file.readAll();
+		latestComic = data.toInt();
+		file.close();
+	}
 	// set up networking stuff
 	netmgr = new QNetworkAccessManager(this);
 	dataBuffer = new QByteArray();
@@ -71,6 +78,10 @@ void XKCDviewer::dataFinished() {
 	emit doRefreshView();
 	if (currentComic < 0) {
 		latestComic = comicData.object().value("num").toInt();
+		QFile file(cacheDir + "/latest");
+		file.open(QIODevice::WriteOnly);
+		file.write(qPrintable(QString::number(latestComic)));
+		file.close();
 		currentComic = latestComic;
 	}
 	// create cache directory for comic if non-existent
@@ -150,6 +161,11 @@ void XKCDviewer::randomComic() {
 	if (currentComic >= justSeen) {
 		currentComic++;
 	}
+	updateJSON();
+}
+
+void XKCDviewer::latestCached() {
+	currentComic = latestComic;
 	updateJSON();
 }
 

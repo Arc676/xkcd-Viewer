@@ -107,6 +107,11 @@ public:
 	Q_INVOKABLE void randomComic();
 
 	/**
+	 * Jumps to the newest cached comic
+	 */
+	Q_INVOKABLE void latestCached();
+
+	/**
 	 * Jumps to a specific comic
 	 * @param comic The comic number
 	 */
