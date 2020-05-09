@@ -207,5 +207,5 @@ QList<QVariant> XKCDviewer::search(QVariant query) {
 }
 
 QString XKCDviewer::valueToPlainText(QString key) {
-	return comicData.object().value(key).toString();
+	return comicData.object().value(key).toString().toHtmlEscaped();
 }

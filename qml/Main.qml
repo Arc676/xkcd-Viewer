@@ -64,13 +64,13 @@ Page {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			comicTitle.text = json["num"] + ": " + XKCDviewer.valueToPlainText("title")
-			titleText.text = XKCDviewer.valueToPlainText("alt")
+			comicTitle.text = json["num"] + ": " + XKCDviewer.valueToPlainText("title").replace(/&amp;eacute;/g, "é")
+			titleText.text = XKCDviewer.valueToPlainText("alt").replace(/&amp;eacute;/g, "é")
 
 			// update JSON model
 			jsonModel.clear()
 			for (var key in json) {
-				jsonModel.append({"key" : key, "value" : XKCDviewer.valueToPlainText(key)})
+				jsonModel.append({"key" : key, "value" : XKCDviewer.valueToPlainText(key).replace(/&amp;eacute;/g, "é")})
 			}
 		}
 
@@ -208,7 +208,6 @@ Page {
 
 	Label {
 		id: titleText
-		text: ""
 		wrapMode: Text.Wrap
 
 		anchors {
