@@ -1,29 +1,85 @@
-# xkcd Viewer
-# Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xkcdviewer.arc676 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-23 08:42+0100\n"
-"PO-Revision-Date: 2018-10-23 08:42+0100\n"
+"POT-Creation-Date: 2020-05-09 20:19+0000\n"
+"PO-Revision-Date: 2020-05-11 13:14+0000\n"
+"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
-"Last-Translator: Arc676\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: fr\n"
 
-#: ../qml/Loader.qml:31 xkcdviewer.desktop.in.h:1
+#: ../qml/SharePage.qml:22
+msgid "Send Comic To..."
+msgstr "Envoyer la bande dessinée à..."
+
+#: ../qml/SearchPage.qml:42
+msgid "Query:"
+msgstr "Requête :"
+
+#: ../qml/SearchPage.qml:51 ../qml/DefaultHeader.qml:33
+msgid "Search"
+msgstr "Rechercher"
+
+#: ../qml/NoResultsDialog.qml:23
+msgid ""
+"Your query yielded no results. Please note that the search function only "
+"searches the local cache."
+msgstr ""
+"Votre requête n'a donné aucun résultat. Veuillez noter que la fonctionalité de recherche ne "
+"couvre que le cache local."
+
+#: ../qml/NoResultsDialog.qml:27
+msgid "OK"
+msgstr "Valider"
+
+#: ../qml/JumpDialog.qml:25
+msgid "Which comic would you like to view?"
+msgstr "Quelle bande dessinée voudriez-vous consulter ?"
+
+#: ../qml/JumpDialog.qml:29
+msgid "Comic number"
+msgstr "Numéro de bande dessinée"
+
+#: ../qml/JumpDialog.qml:34
+msgid "View Comic"
+msgstr "Consulter la bande dessinée"
+
+#: ../qml/JumpDialog.qml:44
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../qml/DefaultHeader.qml:20 xkcdviewer.desktop.in.h:1
 msgid "xkcd Viewer"
-msgstr "xkcd Viewer"
+msgstr "Visionneuse de xkcd"
 
-#: ../qml/Loader.qml:35 ../qml/Loader.qml:51
+#: ../qml/DefaultHeader.qml:27
+msgid "Newest Cached"
+msgstr "Dernières mises en cache"
+
+#: ../qml/DefaultHeader.qml:39
+msgid "Jump to Comic"
+msgstr "Accéder à la bande dessinée"
+
+#: ../qml/DefaultHeader.qml:45
 msgid "About"
-msgstr "Infos"
+msgstr "À propos"
 
-#: ../qml/Loader.qml:48
-msgid "Back"
-msgstr "Retour"
+#: ../qml/DefaultHeader.qml:51
+msgid "Share Comic"
+msgstr "Partager la bande dessinée"
+
+#: ../qml/DefaultHeader.qml:57
+msgid "Share Link"
+msgstr "Partager le lien"
+
+#: ../qml/DefaultHeader.qml:63
+msgid "Save Comic"
+msgstr "Enregistrer la bande dessinée"
