@@ -1,5 +1,5 @@
 # xkcd Viewer
-# Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# Copyright (C) 2018-20 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
 # This file is distributed under the same license as the xkcdviewer.arc676 package.
 #
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../qml/Loader.qml:31 xkcdviewer.desktop.in.h:1
 msgid "xkcd Viewer"
-msgstr "xkcd Viewer"
+msgstr "Visualizzatore xkcd"
 
 #: ../qml/Loader.qml:35 ../qml/Loader.qml:51
 msgid "About"
@@ -27,3 +27,62 @@ msgstr "Info"
 #: ../qml/Loader.qml:48
 msgid "Back"
 msgstr "Indietro"
+
+#: ../qml/SharePage.qml:22
+msgid "Send Comic To..."
+msgstr "Invia Fumetto Via..."
+
+#: ../qml/SearchPage.qml:42
+msgid "Query:"
+msgstr "Cerca:"
+
+#: ../qml/SearchPage.qml:51 ../qml/DefaultHeader.qml:33
+msgid "Search"
+msgstr "Cerca"
+
+#: ../qml/NoResultsDialog.qml:23
+msgid ""
+"Your query yielded no results. Please note that the search function only "
+"searches the local cache."
+msgstr "Non è stato trovato nessun resultato. Prego notare che la funzione cerca solo "
+"nel cache locale."
+
+#: ../qml/NoResultsDialog.qml:27
+msgid "OK"
+msgstr "OK"
+
+#: ../qml/JumpDialog.qml:25
+msgid "Which comic would you like to view?"
+msgstr "Quale fumetto vorrebbe visualizzare?"
+
+#: ../qml/JumpDialog.qml:29
+msgid "Comic number"
+msgstr "Numero fumetto"
+
+#: ../qml/JumpDialog.qml:34
+msgid "View Comic"
+msgstr "Visualizza Fumetto"
+
+#: ../qml/JumpDialog.qml:44
+msgid "Cancel"
+msgstr "Annulla"
+
+#: ../qml/DefaultHeader.qml:27
+msgid "Newest Cached"
+msgstr "Più Recente nel Cache"
+
+#: ../qml/DefaultHeader.qml:39
+msgid "Jump to Comic"
+msgstr "Salta a Fumetto"
+
+#: ../qml/DefaultHeader.qml:51
+msgid "Share Comic"
+msgstr "Condividi Fumetto"
+
+#: ../qml/DefaultHeader.qml:57
+msgid "Share Link"
+msgstr "Condividi Link"
+
+#: ../qml/DefaultHeader.qml:63
+msgid "Save Comic"
+msgstr "Salva Fumetto"

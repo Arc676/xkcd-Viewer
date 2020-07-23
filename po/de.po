@@ -1,5 +1,5 @@
 # xkcd Viewer
-# Copyright (C) 2018 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
+# Copyright (C) 2018-20 Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>
 # This file is distributed under the same license as the xkcdviewer.arc676 package.
 #
 msgid ""
@@ -16,14 +16,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: de\n"
 
-#: ../qml/Loader.qml:31 xkcdviewer.desktop.in.h:1
-msgid "xkcd Viewer"
-msgstr "xkcd Viewer"
-
-#: ../qml/Loader.qml:35 ../qml/Loader.qml:51
-msgid "About"
-msgstr "Über"
-
 #: ../qml/Loader.qml:48
 msgid "Back"
 msgstr "Zurück"
+
+#: ../qml/SharePage.qml:22
+msgid "Send Comic To..."
+msgstr "Comic Senden Via..."
+
+#: ../qml/SearchPage.qml:42
+msgid "Query:"
+msgstr "Suche:"
+
+#: ../qml/SearchPage.qml:51 ../qml/DefaultHeader.qml:33
+msgid "Search"
+msgstr "Suchen"
+
+#: ../qml/NoResultsDialog.qml:23
+msgid ""
+"Your query yielded no results. Please note that the search function only "
+"searches the local cache."
+msgstr "Ihre Suche hat keine Ergebnisse zurückgegeben. Bitte bemerken Sie, dass "
+"die Suchfunktion nur den lokalen Speicher durchsucht."
+
+#: ../qml/NoResultsDialog.qml:27
+msgid "OK"
+msgstr "OK"
+
+#: ../qml/JumpDialog.qml:25
+msgid "Which comic would you like to view?"
+msgstr "Welchen Comic möchten Sie lesen?"
+
+#: ../qml/JumpDialog.qml:29
+msgid "Comic number"
+msgstr "Comicnummer"
+
+#: ../qml/JumpDialog.qml:34
+msgid "View Comic"
+msgstr "Comic Zeigen"
+
+#: ../qml/JumpDialog.qml:44
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: ../qml/DefaultHeader.qml:20 xkcdviewer.desktop.in.h:1
+msgid "xkcd Viewer"
+msgstr "xkcd Leser"
+
+#: ../qml/DefaultHeader.qml:27
+msgid "Newest Cached"
+msgstr "Neuster Gespeicherter"
+
+#: ../qml/DefaultHeader.qml:39
+msgid "Jump to Comic"
+msgstr "Zu Comic Springen"
+
+#: ../qml/DefaultHeader.qml:45
+msgid "About"
+msgstr "Über"
+
+#: ../qml/DefaultHeader.qml:51
+msgid "Share Comic"
+msgstr "Comic Teilen"
+
+#: ../qml/DefaultHeader.qml:57
+msgid "Share Link"
+msgstr "Link Teilen"
+
+#: ../qml/DefaultHeader.qml:63
+msgid "Save Comic"
+msgstr "Comic Speichern"
