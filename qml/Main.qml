@@ -60,17 +60,21 @@ Page {
 		page.shareComic(XKCDviewer.imgPath)
 	}
 
+	function unescapeHTML(text) {
+		return text.replace(/&amp;eacute;/g, "é").replace(/&quot;/g, "\"")
+	}
+
 	Connections {
 		target: XKCDviewer
 		onDoRefreshView: {
 			var json = XKCDviewer.comicData
-			comicTitle.text = json["num"] + ": " + XKCDviewer.valueToPlainText("title").replace(/&amp;eacute;/g, "é")
-			titleText.text = XKCDviewer.valueToPlainText("alt").replace(/&amp;eacute;/g, "é")
+			comicTitle.text = json["num"] + ": " + unescapeHTML(XKCDviewer.valueToPlainText("title"))
+			titleText.text = unescapeHTML(XKCDviewer.valueToPlainText("alt"))
 
 			// update JSON model
 			jsonModel.clear()
 			for (var key in json) {
-				jsonModel.append({"key" : key, "value" : XKCDviewer.valueToPlainText(key).replace(/&amp;eacute;/g, "é")})
+				jsonModel.append({"key" : key, "value" : unescapeHTML(XKCDviewer.valueToPlainText(key))})
 			}
 		}
 
