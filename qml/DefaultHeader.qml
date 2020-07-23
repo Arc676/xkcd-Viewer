@@ -23,43 +23,43 @@ PageHeader {
 		actions: [
 			Action {
 				iconName: "go-last"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Newest Cached")
-				onTriggered: pageStack.comicView.latestCached()
+				onTriggered: pageViewer.comicView.latestCached()
 			},
 			Action {
 				iconName: "find"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Search")
-				onTriggered: pageStack.push(pageStack.searchPage)
+				onTriggered: pageViewer.push(pageViewer.searchPage)
 			},
 			Action {
 				iconName: "tag"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Jump to Comic")
-				onTriggered: pageStack.comicView.jumpToComic()
+				onTriggered: pageViewer.comicView.jumpToComic()
 			},
 			Action {
 				iconName: "info"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("About")
-				onTriggered: pageStack.push(Qt.resolvedUrl("About.qml"))
+				onTriggered: pageViewer.push(Qt.resolvedUrl("About.qml"))
 			},
 			Action {
 				iconName: "share"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Share Comic")
 				onTriggered: comicView.shareComic()
 			},
 			Action {
 				iconName: "stock_link"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Share Link")
 				onTriggered: comicView.shareLink()
 			},
 			Action {
 				iconName: "save-as"
-				visible: pageStack.depth === 1
+				visible: pageViewer.depth === 1
 				text: i18n.tr("Save Comic")
 				onTriggered: comicView.saveComic()
 			}

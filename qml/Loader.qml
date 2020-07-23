@@ -27,7 +27,7 @@ MainView {
 	height: units.gu(75)
 
 	PageStack {
-		id: pageStack
+		id: pageViewer
 		anchors.fill: parent
 
 		property SearchPage searchPage: SearchPage {
@@ -39,8 +39,8 @@ MainView {
 		}
 
 		Component.onCompleted: {
-			pageStack.clear()
-			pageStack.push(comicView)
+			pageViewer.clear()
+			pageViewer.push(comicView)
 		}
 	}
 }
