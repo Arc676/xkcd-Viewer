@@ -19,7 +19,9 @@ import XKCDviewer 1.0
 
 Page {
 	id: shareView
-	title: i18n.tr("Send Comic To...")
+	header: PageHeader {
+		title: i18n.tr("Send Comic To...")
+	}
 
 	property var url
 
