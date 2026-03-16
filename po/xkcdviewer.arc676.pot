@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xkcdviewer.arc676\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-23 08:32+0000\n"
+"POT-Creation-Date: 2026-03-16 20:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/SharePage.qml:22
-msgid "Send Comic To..."
-msgstr ""
-
-#: ../qml/SearchPage.qml:42
-msgid "Query:"
-msgstr ""
-
-#: ../qml/SearchPage.qml:51 ../qml/DefaultHeader.qml:33
-msgid "Search"
-msgstr ""
-
-#: ../qml/NoResultsDialog.qml:23
-msgid ""
-"Your query yielded no results. Please note that the search function only "
-"searches the local cache."
-msgstr ""
-
-#: ../qml/NoResultsDialog.qml:27
-msgid "OK"
-msgstr ""
-
-#: ../qml/JumpDialog.qml:25
-msgid "Which comic would you like to view?"
-msgstr ""
-
-#: ../qml/JumpDialog.qml:29
-msgid "Comic number"
-msgstr ""
-
-#: ../qml/JumpDialog.qml:34
-msgid "View Comic"
-msgstr ""
-
-#: ../qml/JumpDialog.qml:44
-msgid "Cancel"
-msgstr ""
-
 #: ../qml/DefaultHeader.qml:20 xkcdviewer.desktop.in.h:1
 msgid "xkcd Viewer"
 msgstr ""
 
 #: ../qml/DefaultHeader.qml:27
 msgid "Newest Cached"
+msgstr ""
+
+#: ../qml/DefaultHeader.qml:33 ../qml/SearchPage.qml:51
+msgid "Search"
 msgstr ""
 
 #: ../qml/DefaultHeader.qml:39
@@ -81,4 +47,38 @@ msgstr ""
 
 #: ../qml/DefaultHeader.qml:63
 msgid "Save Comic"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:25
+msgid "Which comic would you like to view?"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:29
+msgid "Comic number"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:34
+msgid "View Comic"
+msgstr ""
+
+#: ../qml/JumpDialog.qml:44
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/NoResultsDialog.qml:23
+msgid ""
+"Your query yielded no results. Please note that the search function only "
+"searches the local cache."
+msgstr ""
+
+#: ../qml/NoResultsDialog.qml:27
+msgid "OK"
+msgstr ""
+
+#: ../qml/SearchPage.qml:42
+msgid "Query:"
+msgstr ""
+
+#: ../qml/SharePage.qml:23
+msgid "Send Comic To..."
 msgstr ""
