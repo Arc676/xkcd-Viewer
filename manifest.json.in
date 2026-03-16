@@ -1,16 +1,16 @@
 {
-    "name": "xkcdviewer.arc676",
-    "description": "Simple xkcd comic viewer",
-    "architecture": "@CLICK_ARCH@",
-    "title": "xkcd Viewer",
-    "hooks": {
-        "xkcdviewer": {
-            "apparmor": "xkcdviewer.apparmor",
-            "content-hub": "xkcdviewer-content.json",
-            "desktop":  "xkcdviewer.desktop"
-        }
-    },
-    "version": "0.3.2",
-    "maintainer": "Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>",
-    "framework" : "ubuntu-sdk-16.04"
+  "name": "xkcdviewer.arc676",
+  "description": "Simple xkcd comic viewer",
+  "architecture": "@CLICK_ARCH@",
+  "title": "xkcd Viewer",
+  "hooks": {
+    "xkcdviewer": {
+      "apparmor": "xkcdviewer.apparmor",
+      "content-hub": "xkcdviewer-content.json",
+      "desktop": "xkcdviewer.desktop"
+    }
+  },
+  "version": "0.3.2",
+  "maintainer": "Arc676/Alessandro Vinciguerra <alesvinciguerra@gmail.com>",
+  "framework": "@CLICK_FRAMEWORK@"
 }

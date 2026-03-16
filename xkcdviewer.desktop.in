@@ -4,4 +4,4 @@ Exec=qmlscene qml/Loader.qml
 Icon=assets/icon.png
 Terminal=false
 Type=Application
-X-Ubuntu-Touch=true
+X-Lomiri-Touch=true
